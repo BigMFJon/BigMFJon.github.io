@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Bekzhon Bekzhonov</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PROJECTS GRID ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 6px 28px rgba(44, 34, 24, 0.10);
+      transform: translateY(-3px);
+    }
+
+    .project-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: var(--terra-soft);
+    }
+
+    .project-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--terra-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      color: var(--dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .project-photo-placeholder .icon {
+      font-size: 1.6rem;
+      opacity: 0.35;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-number {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.72;
+      flex: 1;
+    }
+
+    .project-footer {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-year {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .project-status {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border-radius: 3px;
+    }
+
+    .status-live {
+      background: var(--sage-soft);
+      color: var(--sage);
+    }
+
+    .status-progress {
+      background: var(--terra-soft);
+      color: var(--terra);
+    }
+
+    .status-research {
+      background: #EEF0F8;
+      color: #5A6AAB;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 580px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Bekzhon <span>Bekzhonov</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="beyond.html">Beyond Work</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="section" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="eyebrow">Portfolio</div>
+      <h1 style="margin-bottom: 1rem;">Things I've <em>built</em></h1>
+      <p class="lead">
+        A mix of hardware, software, research and design — each project taught me something different. Photos coming soon; descriptions are placeholders you can update anytime.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS GRID ═══ -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <div class="projects-grid">
+
+        <!-- 01 CNC Rain Simulator -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">🏗️</div>
+            <div>Add photo — images/cnc.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">01</div>
+            <div class="card-tag">Hardware · CNC · Automation</div>
+            <div class="project-title">CNC Rain Simulator</div>
+            <p class="project-desc">
+              Fully functional CNC-controlled rain simulator built for my bachelor thesis at Trier University. Designed in CAD, programmed the motion controller and calibrated flow sensors from scratch. Still used for school demonstrations today.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">CAD</span>
+              <span class="chip">CNC Programming</span>
+              <span class="chip">Arduino</span>
+              <span class="chip">Flow Sensors</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2022 – 2023 · Trier</span>
+              <span class="project-status status-live">Still in use</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 Google Earth Engine -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">🛰️</div>
+            <div>Add photo — images/gee.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">02</div>
+            <div class="card-tag">Remote Sensing · ML · Python</div>
+            <div class="project-title">Google Earth Engine Resource App</div>
+            <p class="project-desc">
+              Built during a UC Davis research fellowship. Used ML models via the Google Earth Engine Python API to analyse satellite imagery and model resource allocation patterns at scale.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">Python</span>
+              <span class="chip">Google Earth Engine</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Spatial Analysis</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2023 · UC Davis, California</span>
+              <span class="project-status status-research">Research</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 Swedish Energy Agency -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">⚡</div>
+            <div>Add photo — images/energy.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">03</div>
+            <div class="card-tag">Energy · Climate · Data Analysis</div>
+            <div class="project-title">Swedish Energy Agency Study</div>
+            <p class="project-desc">
+              Master's thesis contributing to a paper connected to the Swedish Energy Agency. Modelled energy transfer and climate dynamics using atmospheric remote sensing data across TU Munich and Lund University.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">Python</span>
+              <span class="chip">Atmospheric Data</span>
+              <span class="chip">Energy Modelling</span>
+              <span class="chip">Remote Sensing</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2024 – 2025 · Munich & Lund</span>
+              <span class="project-status status-research">Paper in review</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 Massage Salon Website -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">💻</div>
+            <div>Add photo — images/salon.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">04</div>
+            <div class="card-tag">Web Design · HTML · CSS · JS</div>
+            <div class="project-title">Massage Salon Website</div>
+            <p class="project-desc">
+              Designed and built a complete website for my sister's massage salon. Fully responsive, SEO-friendly, with a working booking inquiry form. Pure HTML, CSS and JavaScript — no frameworks, no templates.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">SEO</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2024 · Remote</span>
+              <span class="project-status status-live">Live</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 German Learning App -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">📱</div>
+            <div>Add screenshot — images/germanapp.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">05</div>
+            <div class="card-tag">Android · Kotlin · EdTech</div>
+            <div class="project-title">German Learning App</div>
+            <p class="project-desc">
+              Native Android app to accelerate my B2 → C1 German journey. Spaced repetition engine, grammar drill modes and daily streak tracking — built in Kotlin. My philosophy: the best way to learn a tool is to build one.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">Kotlin</span>
+              <span class="chip">Android SDK</span>
+              <span class="chip">Room DB</span>
+              <span class="chip">Spaced Repetition</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2025 · Munich</span>
+              <span class="project-status status-progress">In progress</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 Horyzn Aerospace -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">✈️</div>
+            <div>Add photo — images/horyzn.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">06</div>
+            <div class="card-tag">Aerospace · Avionics · Embedded</div>
+            <div class="project-title">Horyzn Aerospace</div>
+            <p class="project-desc">
+              Software and avionics engineer at TU Munich's student aerospace team. Worked on flight control systems, embedded software and sensor integration. Sharpened systems thinking and engineering discipline under real constraints.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">Embedded Systems</span>
+              <span class="chip">Flight Control</span>
+              <span class="chip">Sensor Integration</span>
+              <span class="chip">C++</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">2023 – 2024 · TU Munich</span>
+              <span class="project-status status-live">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 Telegram Bot -->
+        <div class="project-card reveal">
+          <div class="project-photo-placeholder">
+            <div class="icon">🤖</div>
+            <div>Add screenshot — images/telegrambot.jpg</div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">07</div>
+            <div class="card-tag">Python · Automation · Bot</div>
+            <div class="project-title">Telegram Bot</div>
+            <p class="project-desc">
+              Add your description here — what the bot does, what problem it solves, who uses it. You can edit this directly in GitHub by clicking the pencil icon on projects.html.
+            </p>
+            <div class="chips" style="margin-top: 1rem;">
+              <span class="chip">Python</span>
+              <span class="chip">Telegram API</span>
+              <span class="chip">Automation</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-year">Add year · Add location</span>
+              <span class="project-status status-progress">In progress</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <span>Bekzhon Bekzhonov · Munich, 2026</span>
+    <span>
+      <a href="mailto:bekzhonov@gmail.com" style="color: var(--dim); margin-right: 1.5rem;">bekzhonov@gmail.com</a>
+      <a href="tel:+491789159890" style="color: var(--dim);">+49 178 915 9890</a>
+    </span>
+  </footer>
+
+  <!-- ═══ SCROLL REVEAL ═══ -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
