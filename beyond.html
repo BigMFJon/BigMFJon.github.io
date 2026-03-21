@@ -16,14 +16,12 @@
       border: 1px solid var(--border);
       margin-top: 1.5rem;
     }
-
     .map-legend {
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
       margin-top: 0.9rem;
     }
-
     .leg {
       display: flex;
       align-items: center;
@@ -31,22 +29,13 @@
       font-family: 'Jost', sans-serif;
       font-size: 0.72rem;
       color: var(--muted);
-      letter-spacing: 0.04em;
     }
-
-    .leg-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* Leaflet popup styling */
+    .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .leaflet-popup-content-wrapper {
       background: #fffaf6;
       border: 1px solid var(--border);
       border-radius: 6px;
-      box-shadow: 0 4px 18px rgba(44, 24, 8, 0.10);
+      box-shadow: 0 4px 18px rgba(44,24,8,0.10);
     }
     .leaflet-popup-tip { background: #fffaf6; }
     .leaflet-popup-content {
@@ -72,11 +61,8 @@
       color: var(--dim);
     }
 
-    /* ── SECTION DIVIDERS ── */
-    .beyond-section {
-      padding: 4.5rem 0;
-      border-top: 1px solid var(--border);
-    }
+    /* ── SECTION WRAPPER ── */
+    .beyond-section { padding: 4.5rem 0; border-top: 1px solid var(--border); }
 
     /* ── SPORTS GRID ── */
     .sports-grid {
@@ -85,7 +71,6 @@
       gap: 1.2rem;
       margin-top: 2rem;
     }
-
     .sport-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -93,18 +78,11 @@
       padding: 1.6rem;
       transition: box-shadow 0.22s, transform 0.22s;
     }
-
     .sport-card:hover {
-      box-shadow: 0 4px 18px rgba(44, 34, 24, 0.09);
+      box-shadow: 0 4px 18px rgba(44,34,24,0.09);
       transform: translateY(-2px);
     }
-
-    .sport-icon {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      opacity: 0.75;
-    }
-
+    .sport-icon { font-size: 1.6rem; margin-bottom: 0.8rem; opacity: 0.75; }
     .sport-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem;
@@ -112,13 +90,7 @@
       margin-bottom: 0.4rem;
       color: var(--text);
     }
-
-    .sport-detail {
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
+    .sport-detail { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
     .sport-badge {
       display: inline-block;
       margin-top: 0.8rem;
@@ -139,7 +111,6 @@
       gap: 1.2rem;
       margin-top: 2rem;
     }
-
     .lead-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -148,20 +119,14 @@
       display: flex;
       gap: 1.2rem;
       align-items: flex-start;
-      transition: box-shadow 0.22s;
+      transition: box-shadow 0.22s, transform 0.22s;
     }
-
-    .lead-card:hover {
-      box-shadow: 0 4px 18px rgba(44, 34, 24, 0.09);
+    .lead-card.clickable { cursor: pointer; }
+    .lead-card.clickable:hover {
+      box-shadow: 0 4px 18px rgba(44,34,24,0.11);
+      transform: translateY(-2px);
     }
-
-    .lead-icon {
-      font-size: 1.4rem;
-      opacity: 0.7;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
+    .lead-icon { font-size: 1.4rem; opacity: 0.7; flex-shrink: 0; margin-top: 0.1rem; }
     .lead-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
@@ -169,28 +134,21 @@
       margin-bottom: 0.2rem;
       color: var(--text);
     }
-
-    .lead-sub {
-      font-size: 0.8rem;
-      color: var(--terra);
-      margin-bottom: 0.4rem;
+    .lead-sub { font-size: 0.8rem; color: var(--terra); margin-bottom: 0.4rem; font-family: 'Jost', sans-serif; }
+    .lead-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+    .photo-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.7rem;
       font-family: 'Jost', sans-serif;
-    }
-
-    .lead-desc {
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.65;
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
+      color: var(--terra);
     }
 
     /* ── AWARDS ── */
-    .awards-list {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
+    .awards-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0; }
     .award-item {
       display: flex;
       align-items: baseline;
@@ -198,11 +156,7 @@
       padding: 1.1rem 0;
       border-bottom: 1px solid var(--border);
     }
-
-    .award-item:first-child {
-      border-top: 1px solid var(--border);
-    }
-
+    .award-item:first-child { border-top: 1px solid var(--border); }
     .award-marker {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
@@ -210,18 +164,8 @@
       flex-shrink: 0;
       font-style: italic;
     }
-
-    .award-text {
-      font-size: 0.9rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .award-sub {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.15rem;
-    }
+    .award-text { font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+    .award-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
 
     /* ── HACKATHONS ── */
     .hack-grid {
@@ -230,7 +174,6 @@
       gap: 1.2rem;
       margin-top: 2rem;
     }
-
     .hack-card {
       background: var(--sage-soft);
       border: 1px solid #c8deca;
@@ -238,12 +181,11 @@
       padding: 1.5rem;
       transition: box-shadow 0.22s, transform 0.22s;
     }
-
-    .hack-card:hover {
-      box-shadow: 0 4px 18px rgba(44, 34, 24, 0.09);
+    .hack-card.clickable { cursor: pointer; }
+    .hack-card.clickable:hover {
+      box-shadow: 0 4px 18px rgba(44,34,24,0.09);
       transform: translateY(-2px);
     }
-
     .hack-year {
       font-family: 'Jost', sans-serif;
       font-size: 0.62rem;
@@ -252,7 +194,6 @@
       color: var(--sage);
       margin-bottom: 0.5rem;
     }
-
     .hack-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
@@ -260,12 +201,7 @@
       color: var(--text);
       margin-bottom: 0.4rem;
     }
-
-    .hack-desc {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
+    .hack-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
 
     /* ── VOLUNTEERING ── */
     .vol-grid {
@@ -274,7 +210,6 @@
       gap: 1.2rem;
       margin-top: 2rem;
     }
-
     .vol-item {
       display: flex;
       gap: 1rem;
@@ -283,42 +218,22 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
+      transition: box-shadow 0.22s, transform 0.22s;
     }
-
-    .vol-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--sage);
-      flex-shrink: 0;
-      margin-top: 0.45rem;
+    .vol-item.clickable { cursor: pointer; }
+    .vol-item.clickable:hover {
+      box-shadow: 0 4px 18px rgba(44,34,24,0.09);
+      transform: translateY(-2px);
     }
-
-    .vol-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-
-    .vol-desc {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .vol-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); flex-shrink: 0; margin-top: 0.45rem; }
+    .vol-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text); margin-bottom: 0.2rem; }
+    .vol-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
     /* ── INTERESTS ── */
-    .interests-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-
+    .interests-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
     .interest-tag {
       font-family: 'Jost', sans-serif;
       font-size: 0.8rem;
-      letter-spacing: 0.04em;
       color: var(--text);
       background: var(--surface);
       border: 1px solid var(--border);
@@ -326,18 +241,140 @@
       padding: 0.5rem 1rem;
       transition: all 0.18s;
     }
+    .interest-tag:hover { border-color: var(--terra); color: var(--terra); }
 
-    .interest-tag:hover {
-      border-color: var(--terra);
-      color: var(--terra);
+    /* ── PHOTO MODAL ── */
+    #ph-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: rgba(28,16,6,0.75);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
     }
+    #ph-overlay.open { display: flex; }
+    #ph-box {
+      background: #fff;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 16px 56px rgba(28,16,6,0.25);
+      position: relative;
+      overflow: hidden;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform: translateY(16px) scale(0.97); }
+      to   { opacity:1; transform: translateY(0)    scale(1);    }
+    }
+    #ph-close {
+      position: absolute;
+      top: 10px; right: 10px;
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s, color 0.18s;
+    }
+    #ph-close:hover { background: var(--terra-soft); color: var(--terra); }
+    #ph-slider {
+      position: relative;
+      aspect-ratio: 16 / 8;
+      background: var(--terra-soft);
+      overflow: hidden;
+    }
+    #ph-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+    .ph-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--terra-soft);
+    }
+    .ph-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .ph-slide-ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+    .ph-slide-ph span { font-size: 2rem; opacity: 0.3; }
+    .ph-arr {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.9);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      z-index: 5;
+    }
+    .ph-arr:hover { background: #fff; }
+    #ph-prev { left: 10px; }
+    #ph-next { right: 10px; }
+    #ph-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 5;
+    }
+    .ph-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+    }
+    .ph-dot.on { background: #fff; transform: scale(1.25); }
+    #ph-info { padding: 1.2rem 1.5rem 1.5rem; }
+    #ph-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    #ph-caption { font-family: 'Jost', sans-serif; font-size: 0.84rem; color: var(--muted); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .sports-grid  { grid-template-columns: repeat(2, 1fr); }
-      .hack-grid    { grid-template-columns: repeat(2, 1fr); }
+      .sports-grid { grid-template-columns: repeat(2, 1fr); }
+      .hack-grid   { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (max-width: 600px) {
       .sports-grid     { grid-template-columns: 1fr; }
       .leadership-grid { grid-template-columns: 1fr; }
@@ -376,8 +413,8 @@
     <div class="container">
       <div class="eyebrow reveal">Global footprint</div>
       <h2 class="reveal">Lived, not <em>visited</em></h2>
-      <p class="body-text reveal" style="max-width: 560px; margin-bottom: 0.5rem;">
-        Every pin marks a place I actually lived, studied or worked — not a holiday. Self-funded through scholarships, jobs and sheer persistence. Hover or click any pin for details.
+      <p class="body-text reveal" style="max-width:560px;margin-bottom:0.5rem;">
+        Every pin marks a place I actually lived, studied or worked — not a holiday. Self-funded through scholarships, jobs and persistence. Hover or click any pin for details.
       </p>
       <div id="map"></div>
       <div class="map-legend">
@@ -394,100 +431,101 @@
     <div class="container">
       <div class="eyebrow reveal">Sports & martial arts</div>
       <h2 class="reveal">Competing at <em>every level</em></h2>
-      <p class="body-text reveal" style="max-width: 560px;">
+      <p class="body-text reveal" style="max-width:560px;">
         Sport taught me discipline, losing gracefully and winning without complacency. I have competed since childhood and still train regularly.
       </p>
       <div class="sports-grid">
-
         <div class="sport-card reveal">
           <div class="sport-icon">🥋</div>
           <div class="sport-name">Jiu-Jitsu</div>
           <p class="sport-detail">Competed at national level in Russia. Placed in multiple regional tournaments before earning a silver medal at the Russian Championships — twice.</p>
           <span class="sport-badge">2× Silver · Russian Championships</span>
         </div>
-
         <div class="sport-card reveal">
           <div class="sport-icon">🤼</div>
           <div class="sport-name">Sambo</div>
-          <p class="sport-detail">Trained and competed in Sambo from an early age in Kolomna. Later coached children's Sambo and acrobatics sessions at Tsentr Smeshannykh Edinoborstv.</p>
+          <p class="sport-detail">Trained and competed in Sambo from an early age in Kolomna. Later coached children's Sambo and acrobatics at Tsentr Smeshannykh Edinoborstv.</p>
           <span class="sport-badge">Competitor & Coach</span>
         </div>
-
         <div class="sport-card reveal">
           <div class="sport-icon">🏆</div>
           <div class="sport-name">Greco-Roman Wrestling</div>
           <p class="sport-detail">Winner of regional Greco-Roman wrestling tournaments. Grappling has been a constant thread throughout my life — the discipline translates directly to everything else.</p>
           <span class="sport-badge">Tournament Winner</span>
         </div>
-
         <div class="sport-card reveal">
           <div class="sport-icon">🏉</div>
           <div class="sport-name">Rugby</div>
-          <p class="sport-detail">Played for the PFUR Rugby Team during my time at People's Friendship University of Russia in Moscow. A new sport that added teamwork and collective discipline to my athletic background.</p>
+          <p class="sport-detail">Played for the PFUR Rugby Team during my time at People's Friendship University of Russia in Moscow. A sport that added collective discipline to my athletic background.</p>
           <span class="sport-badge">PFUR Team · 2017–2018</span>
         </div>
-
         <div class="sport-card reveal">
           <div class="sport-icon">🤸</div>
           <div class="sport-name">Acrobatics</div>
-          <p class="sport-detail">Trained in acrobatics alongside Sambo and later incorporated it into the children's coaching sessions in Kolomna. Balance, body control and spatial awareness carry over into everything physical.</p>
+          <p class="sport-detail">Trained in acrobatics alongside Sambo and later incorporated it into children's coaching sessions in Kolomna. Balance and body control carry over into everything.</p>
           <span class="sport-badge">Coach & Practitioner</span>
         </div>
-
         <div class="sport-card reveal">
           <div class="sport-icon">🎽</div>
           <div class="sport-name">General Athletics</div>
           <p class="sport-detail">Consistent training across running, strength and conditioning throughout my years in Germany. Sport is non-negotiable — it keeps everything else running.</p>
           <span class="sport-badge">Ongoing</span>
         </div>
-
       </div>
     </div>
   </div>
 
   <!-- ═══ 3. STUDENT LEADERSHIP ═══ -->
-  <div class="beyond-section" style="background: var(--surface);">
+  <div class="beyond-section" style="background:var(--surface);">
     <div class="container">
       <div class="eyebrow reveal">Student leadership</div>
-      <h2 class="reveal">Building communities, <em>not just CVs</em></h2>
-      <p class="body-text reveal" style="max-width: 560px;">
-        I have led student organisations on two continents. The skills are the same as in the workplace — stakeholder management, budgeting, running things that outlast you.
+      <h2 class="reveal">Leading people, <em>not just projects</em></h2>
+      <p class="body-text reveal" style="max-width:560px;">
+        I have led student organisations on two continents. The skills are the same as in the workplace — managing people, budgeting, running things that work without you watching.
       </p>
       <div class="leadership-grid">
 
-        <div class="lead-card reveal">
+        <!-- CLICKABLE: Head of People & Culture -->
+        <div class="lead-card clickable reveal"
+             onclick="openPh('Head of People & Culture', 'TUM Case Club · Munich · 2023–2025', ['','',''])">
           <div class="lead-icon">🎓</div>
           <div>
             <div class="lead-title">Head of People & Culture</div>
             <div class="lead-sub">TUM Case Club · Munich · 2023–2025</div>
-            <p class="lead-desc">Led the people and culture function for one of TU Munich's most active student clubs. Responsible for recruitment, events, member experience and the internal culture that kept 100+ members engaged across semesters.</p>
+            <p class="lead-desc">Led the people and culture function for one of TU Munich's most active student clubs. Recruitment, events, member experience and the internal culture that kept 100+ members engaged across semesters.</p>
+            <div class="photo-hint">View photos →</div>
           </div>
         </div>
 
+        <!-- NOT clickable: PFUR -->
         <div class="lead-card reveal">
           <div class="lead-icon">🌍</div>
           <div>
             <div class="lead-title">Deputy Head, International Department</div>
             <div class="lead-sub">Student Council · PFUR Moscow · 2017–2018</div>
-            <p class="lead-desc">Represented international students at People's Friendship University of Russia. Organised cross-cultural events, advocated for student needs and coordinated between 40+ nationalities on campus.</p>
+            <p class="lead-desc">Represented international students at People's Friendship University of Russia. Organised cross-cultural events and coordinated between 40+ nationalities on campus.</p>
           </div>
         </div>
 
-        <div class="lead-card reveal">
+        <!-- CLICKABLE: Global Youth Leadership Forum -->
+        <div class="lead-card clickable reveal"
+             onclick="openPh('Global Youth Leadership Forum', 'Santander, Spain · 2024', ['','',''])">
           <div class="lead-icon">🌐</div>
           <div>
             <div class="lead-title">Global Youth Leadership Forum</div>
             <div class="lead-sub">Santander, Spain · 2024</div>
-            <p class="lead-desc">Selected participant at the Global Youth Leadership Forum — a competitive international programme bringing together young leaders from across the world. Add more detail about your experience, what you worked on and what you took away from it.</p>
+            <p class="lead-desc">Selected participant at the Global Youth Leadership Forum — a competitive international programme bringing together young leaders from across the world. Add your experience and what you worked on.</p>
+            <div class="photo-hint">View photos →</div>
           </div>
         </div>
 
+        <!-- NOT clickable: Young Leaders -->
         <div class="lead-card reveal">
           <div class="lead-icon">🏛️</div>
           <div>
             <div class="lead-title">Member, Young Leaders of Khorezm</div>
             <div class="lead-sub">Uzbekistan</div>
-            <p class="lead-desc">Selected as a member of the Young Leaders of Khorezm programme, recognising emerging leaders from the Khorezm region of Uzbekistan. Add more detail about the programme and what it meant to you.</p>
+            <p class="lead-desc">Selected as a member of the Young Leaders of Khorezm programme, recognising emerging leaders from the Khorezm region of Uzbekistan.</p>
           </div>
         </div>
 
@@ -500,11 +538,10 @@
     <div class="container">
       <div class="eyebrow reveal">Scholarships & awards</div>
       <h2 class="reveal">Recognised <em>merit</em></h2>
-      <p class="body-text reveal" style="max-width: 560px;">
+      <p class="body-text reveal" style="max-width:560px;">
         Every scholarship I received was the difference between making it and not. I do not take them lightly.
       </p>
       <div class="awards-list">
-
         <div class="award-item reveal">
           <div class="award-marker">—</div>
           <div>
@@ -512,7 +549,6 @@
             <div class="award-sub">Current holder · Munich, Germany</div>
           </div>
         </div>
-
         <div class="award-item reveal">
           <div class="award-marker">—</div>
           <div>
@@ -520,7 +556,6 @@
             <div class="award-sub">Former holder</div>
           </div>
         </div>
-
         <div class="award-item reveal">
           <div class="award-marker">—</div>
           <div>
@@ -528,7 +563,6 @@
             <div class="award-sub">Recipient — add institution / year</div>
           </div>
         </div>
-
         <div class="award-item reveal">
           <div class="award-marker">—</div>
           <div>
@@ -536,7 +570,6 @@
             <div class="award-sub">Trier University of Applied Sciences</div>
           </div>
         </div>
-
         <div class="award-item reveal">
           <div class="award-marker">—</div>
           <div>
@@ -544,7 +577,6 @@
             <div class="award-sub">National level competition · Russia</div>
           </div>
         </div>
-
         <div class="award-item reveal">
           <div class="award-marker">—</div>
           <div>
@@ -552,49 +584,59 @@
             <div class="award-sub">Regional level · Russia</div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
   <!-- ═══ 5. HACKATHONS & COMPETITIONS ═══ -->
-  <div class="beyond-section" style="background: var(--surface);">
+  <div class="beyond-section" style="background:var(--surface);">
     <div class="container">
       <div class="eyebrow reveal">Hackathons & competitions</div>
       <h2 class="reveal">Learning fastest <em>under pressure</em></h2>
-      <p class="body-text reveal" style="max-width: 560px;">
-        I learn best by doing and by testing ideas under real constraints with real stakes. Competitions are the fastest classroom I know.
+      <p class="body-text reveal" style="max-width:560px;">
+        I learn best by doing and by testing ideas under real constraints with real stakes.
       </p>
       <div class="hack-grid">
 
-        <div class="hack-card reveal">
+        <!-- CLICKABLE: Sustainable Tourism -->
+        <div class="hack-card clickable reveal"
+             onclick="openPh('International Hackathon for Sustainable Tourism', '2021', ['',''])">
           <div class="hack-year">2021</div>
           <div class="hack-title">International Hackathon for Sustainable Tourism</div>
-          <p class="hack-desc">Worked in an international team to develop a digital solution for sustainable tourism. Add detail about the challenge, your role and what the team built.</p>
+          <p class="hack-desc">Worked in an international team to develop a digital solution for sustainable tourism. Add detail about the challenge, your role and what you built.</p>
+          <div class="photo-hint" style="color:var(--sage);margin-top:0.7rem;">View photos →</div>
         </div>
 
-        <div class="hack-card reveal">
+        <!-- CLICKABLE: FloReST -->
+        <div class="hack-card clickable reveal"
+             onclick="openPh('FloReST Project', '2022–2023 · Trier University', ['',''])">
           <div class="hack-year">2022–2023</div>
           <div class="hack-title">FloReST Project</div>
-          <p class="hack-desc">Developed as part of the FloReST sustainability research project at Trier University. Add detail about the project scope, your specific contribution and any outcomes.</p>
+          <p class="hack-desc">Sustainability research project at Trier University. Add detail about the project scope, your contribution and the outcomes.</p>
+          <div class="photo-hint" style="color:var(--sage);margin-top:0.7rem;">View photos →</div>
         </div>
 
-        <div class="hack-card reveal">
+        <!-- CLICKABLE: Jugend Klima Forum -->
+        <div class="hack-card clickable reveal"
+             onclick="openPh('Jugend Klima Forum', '2019', ['',''])">
           <div class="hack-year">2019</div>
           <div class="hack-title">Jugend Klima Forum</div>
-          <p class="hack-desc">Participated in the Jugend Klima Forum — a youth climate forum bringing together young people to develop ideas on climate action. Add detail about your role and takeaways.</p>
+          <p class="hack-desc">Youth climate forum bringing together young people to develop ideas on climate action. Add detail about your role and what you took away from it.</p>
+          <div class="photo-hint" style="color:var(--sage);margin-top:0.7rem;">View photos →</div>
         </div>
 
+        <!-- NOT clickable: Profi Project -->
         <div class="hack-card reveal">
           <div class="hack-year">2020–2021</div>
           <div class="hack-title">Profi Project</div>
-          <p class="hack-desc">Research and development project at Trier University of Applied Sciences. Add detail about what the project involved, what you built or researched, and what it produced.</p>
+          <p class="hack-desc">Research and development project at Trier University of Applied Sciences. Add detail about what the project involved and what it produced.</p>
         </div>
 
+        <!-- Empty slot -->
         <div class="hack-card reveal">
           <div class="hack-year">Add year</div>
-          <div class="hack-title">Add another competition or hackathon</div>
-          <p class="hack-desc">You can edit this card in beyond.html on GitHub. Add the year, event name and a short description of what you worked on and what you learned.</p>
+          <div class="hack-title">Add another event</div>
+          <p class="hack-desc">Edit this card in beyond.html on GitHub — add the year, title and description.</p>
         </div>
 
       </div>
@@ -608,6 +650,7 @@
       <h2 class="reveal">Giving back, <em>always</em></h2>
       <div class="vol-grid">
 
+        <!-- NOT clickable -->
         <div class="vol-item reveal">
           <div class="vol-dot"></div>
           <div>
@@ -616,6 +659,7 @@
           </div>
         </div>
 
+        <!-- NOT clickable -->
         <div class="vol-item reveal">
           <div class="vol-dot"></div>
           <div>
@@ -624,19 +668,23 @@
           </div>
         </div>
 
+        <!-- NOT clickable -->
         <div class="vol-item reveal">
           <div class="vol-dot"></div>
           <div>
             <div class="vol-title">Comedy Club at PFUR</div>
-            <p class="vol-desc">Active member of the comedy club at People's Friendship University of Russia — 2017 to 2018. Because taking yourself too seriously is its own kind of failure.</p>
+            <p class="vol-desc">Active member of the comedy club at People's Friendship University of Russia, 2017–2018. Because taking yourself too seriously is its own kind of failure.</p>
           </div>
         </div>
 
-        <div class="vol-item reveal">
+        <!-- CLICKABLE: Robotics Teacher -->
+        <div class="vol-item clickable reveal"
+             onclick="openPh('Robotics Teacher', 'LigaRobotov · Moscow · 2018', ['',''])">
           <div class="vol-dot"></div>
           <div>
             <div class="vol-title">Robotics Teacher</div>
             <p class="vol-desc">Taught robotics to children at LigaRobotov in Moscow — building robots and programming with Arduino. July to October 2018.</p>
+            <div class="photo-hint">View photos →</div>
           </div>
         </div>
 
@@ -645,11 +693,11 @@
   </div>
 
   <!-- ═══ 7. INTERESTS ═══ -->
-  <div class="beyond-section" style="background: var(--surface);">
+  <div class="beyond-section" style="background:var(--surface);">
     <div class="container">
       <div class="eyebrow reveal">Personal interests</div>
       <h2 class="reveal">What I think <em>about</em></h2>
-      <p class="body-text reveal" style="max-width: 560px; margin-bottom: 0.5rem;">
+      <p class="body-text reveal" style="max-width:560px;margin-bottom:0.5rem;">
         Aviation fascinates me — I spent a year on an aerospace team and I am still not done with it. Technology, finance and energy are the three domains I believe will define the next decade. Humour is how I stay sane.
       </p>
       <div class="interests-wrap reveal">
@@ -673,48 +721,44 @@
   <footer>
     <span>Bekzhon Bekzhonov · Munich, 2026</span>
     <span>
-      <a href="mailto:bekzhonov@gmail.com" style="color:var(--dim); margin-right:1.5rem;">bekzhonov@gmail.com</a>
+      <a href="mailto:bekzhonov@gmail.com" style="color:var(--dim);margin-right:1.5rem;">bekzhonov@gmail.com</a>
       <a href="tel:+491789159890" style="color:var(--dim);">+49 178 915 9890</a>
     </span>
   </footer>
 
   <!-- ═══ PHOTO MODAL ═══ -->
-  <div id="ph-overlay" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(28,16,6,0.75);align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);">
-    <div style="background:#fff;border-radius:10px;max-width:700px;width:100%;box-shadow:0 16px 56px rgba(28,16,6,0.25);position:relative;overflow:hidden;animation:modalIn 0.25s ease;">
-      <button onclick="closePh()" style="position:absolute;top:10px;right:10px;z-index:10;background:rgba(255,255,255,0.9);border:1px solid #E5DDD4;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;color:#7D7168;display:flex;align-items:center;justify-content:center;">&#10005;</button>
-      <div style="position:relative;aspect-ratio:16/8;background:#F2E8E2;overflow:hidden;">
-        <div id="ph-track" style="display:flex;height:100%;transition:transform 0.35s ease;"></div>
-        <button id="ph-prev" onclick="phGo(-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;border-radius:50%;width:36px;height:36px;font-size:1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);">&#8592;</button>
-        <button id="ph-next" onclick="phGo(1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;border-radius:50%;width:36px;height:36px;font-size:1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);">&#8594;</button>
-        <div id="ph-dots" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;"></div>
+  <div id="ph-overlay">
+    <div id="ph-box">
+      <button id="ph-close">&#10005;</button>
+      <div id="ph-slider">
+        <div id="ph-track"></div>
+        <button class="ph-arr" id="ph-prev">&#8592;</button>
+        <button class="ph-arr" id="ph-next">&#8594;</button>
+        <div id="ph-dots"></div>
       </div>
-      <div style="padding:1.2rem 1.5rem;">
-        <div id="ph-title" style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#2C2218;margin-bottom:0.3rem;"></div>
-        <div id="ph-caption" style="font-family:'Jost',sans-serif;font-size:0.84rem;color:#7D7168;"></div>
+      <div id="ph-info">
+        <div id="ph-title"></div>
+        <div id="ph-caption"></div>
       </div>
     </div>
   </div>
-  
-  <!-- ═══ LEAFLET MAP ═══ -->
+
+  <!-- ═══ SCRIPTS ═══ -->
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
 
-    // ── MAP SETUP ────────────────────────────────────────────────
+    // ── MAP ──────────────────────────────────────────────────────
     var map = L.map('map', { center: [42, 38], zoom: 2, scrollWheelZoom: false });
-
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap &copy; CARTO',
-      subdomains: 'abcd',
-      maxZoom: 14
+      subdomains: 'abcd', maxZoom: 14
     }).addTo(map);
 
     function makeIcon(color) {
       return L.divIcon({
         className: '',
         html: '<div style="width:13px;height:13px;border-radius:50%;background:' + color + ';border:2.5px solid #fff;box-shadow:0 1px 6px rgba(0,0,0,0.22);"></div>',
-        iconSize: [13, 13],
-        iconAnchor: [6, 6],
-        popupAnchor: [0, -10]
+        iconSize: [13,13], iconAnchor: [6,6], popupAnchor: [0,-10]
       });
     }
 
@@ -724,33 +768,106 @@
            + '<span style="font-size:0.82rem;color:#7D7168;">' + detail + '</span>';
     }
 
-    var pins = [
-      // Home / Origin
-      { lat: 41.384, lng: 60.150, color: '#B8936A', name: 'Shavat, Uzbekistan',        label: 'Home / Origin',     detail: 'Hometown · Gymnasium 2 · 2007–2012' },
-      // Study
-      { lat: 41.299, lng: 69.240, color: '#7A9E7E', name: 'Tashkent, Uzbekistan',      label: 'Study',             detail: 'Early education' },
-      { lat: 51.755, lng: -1.254, color: '#7A9E7E', name: 'Oxford, UK',                label: 'Study / Exchange',  detail: 'Oxford International · English · 2018–2019' },
-      { lat: 41.872, lng: 12.567, color: '#7A9E7E', name: 'Rome, Italy',               label: 'Study / Exchange',  detail: 'Tor Vergata University · 2021–2022' },
-      { lat: 48.135, lng: 11.582, color: '#7A9E7E', name: 'Munich, Germany',           label: 'Study',             detail: 'TU Munich · MSc Environmental Engineering · 2023–2026' },
-      { lat: 55.705, lng: 13.191, color: '#7A9E7E', name: 'Lund, Sweden',              label: 'Study / Exchange',  detail: 'Lund University · Quantitative Finance · 2025' },
-      { lat: 31.175, lng: 121.47, color: '#7A9E7E', name: 'Shanghai, China',           label: 'Study / Exchange',  detail: 'Tongji University · Financial Engineering · 2025–2026' },
-      // Work
-      { lat: 50.111, lng:  8.682, color: '#C17A5A', name: 'Frankfurt, Germany',        label: 'Work',              detail: 'Commerzbank · Working Student & Intern · 2022–2025' },
-      { lat: 38.545, lng:-121.74, color: '#C17A5A', name: 'Davis, California, USA',    label: 'Work',              detail: 'UC Davis Research Scholar · GEE & ML · 2023' },
-      { lat: 13.756, lng: 100.50, color: '#C17A5A', name: 'Bangkok, Thailand',         label: 'Work',              detail: 'Remote Research Internship · Shenzhen University · 2022' },
-      { lat: 41.550, lng:  60.63, color: '#C17A5A', name: 'Urgench, Uzbekistan',       label: 'Work',              detail: 'Work and community projects' },
-      // Both
-      { lat: 55.756, lng:  37.62, color: '#9B7AB5', name: 'Moscow, Russia',            label: 'Both',              detail: 'PFUR BSc · IMGR · Various jobs · 2017–2021' },
-      { lat: 55.070, lng:  38.78, color: '#9B7AB5', name: 'Kolomna, Russia',           label: 'Both',              detail: 'Lyceum 4 school · Sambo Coach · 2012–2019' },
-      { lat: 49.750, lng:   6.64, color: '#9B7AB5', name: 'Trier, Germany',            label: 'Both',              detail: 'BEng Sustainable Business & Technology + Research Assistant · 2019–2023' },
-      // Events
-      { lat: 43.462, lng:  -3.81, color: '#C17A5A', name: 'Santander, Spain',          label: 'Event',             detail: 'Global Youth Leadership Forum · 2024' },
-    ];
+    [
+      { lat:41.384, lng:60.150, color:'#B8936A', name:'Shavat, Uzbekistan',      label:'Home / Origin',    detail:'Hometown · Gymnasium 2 · 2007–2012' },
+      { lat:41.299, lng:69.240, color:'#7A9E7E', name:'Tashkent, Uzbekistan',    label:'Study',            detail:'Early education' },
+      { lat:51.755, lng:-1.254, color:'#7A9E7E', name:'Oxford, UK',              label:'Study / Exchange', detail:'Oxford International · English · 2018–2019' },
+      { lat:41.872, lng:12.567, color:'#7A9E7E', name:'Rome, Italy',             label:'Study / Exchange', detail:'Tor Vergata University · 2021–2022' },
+      { lat:48.135, lng:11.582, color:'#7A9E7E', name:'Munich, Germany',         label:'Study',            detail:'TU Munich · MSc Environmental Engineering · 2023–2026' },
+      { lat:55.705, lng:13.191, color:'#7A9E7E', name:'Lund, Sweden',            label:'Study / Exchange', detail:'Lund University · Quantitative Finance · 2025' },
+      { lat:31.175, lng:121.47, color:'#7A9E7E', name:'Shanghai, China',         label:'Study / Exchange', detail:'Tongji University · Financial Engineering · 2025–2026' },
+      { lat:50.111, lng:8.682,  color:'#C17A5A', name:'Frankfurt, Germany',      label:'Work',             detail:'Commerzbank · Working Student & Intern · 2022–2025' },
+      { lat:38.545, lng:-121.74,color:'#C17A5A', name:'Davis, California, USA',  label:'Work',             detail:'UC Davis Research Scholar · GEE & ML · 2023' },
+      { lat:13.756, lng:100.50, color:'#C17A5A', name:'Bangkok, Thailand',       label:'Work',             detail:'Remote Research Internship · Shenzhen University · 2022' },
+      { lat:41.550, lng:60.630, color:'#C17A5A', name:'Urgench, Uzbekistan',     label:'Work',             detail:'Work and community projects' },
+      { lat:55.756, lng:37.620, color:'#9B7AB5', name:'Moscow, Russia',          label:'Both',             detail:'PFUR BSc · IMGR · Various jobs · 2017–2021' },
+      { lat:55.070, lng:38.780, color:'#9B7AB5', name:'Kolomna, Russia',         label:'Both',             detail:'Lyceum 4 school · Sambo Coach · 2012–2019' },
+      { lat:49.750, lng:6.640,  color:'#9B7AB5', name:'Trier, Germany',          label:'Both',             detail:'BEng Sustainable Business & Technology + Research Assistant · 2019–2023' },
+      { lat:43.462, lng:-3.810, color:'#C17A5A', name:'Santander, Spain',        label:'Event',            detail:'Global Youth Leadership Forum · 2024' },
+    ].forEach(function(p) {
+      var m = L.marker([p.lat, p.lng], { icon: makeIcon(p.color) }).addTo(map);
+      m.bindPopup(makePopup(p.name, p.label, p.detail), { maxWidth: 260 });
+      m.on('mouseover', function() { this.openPopup(); });
+    });
 
-    pins.forEach(function(p) {
-      var marker = L.marker([p.lat, p.lng], { icon: makeIcon(p.color) }).addTo(map);
-      marker.bindPopup(makePopup(p.name, p.label, p.detail), { maxWidth: 260 });
-      marker.on('mouseover', function() { this.openPopup(); });
+    // ── PHOTO MODAL ──────────────────────────────────────────────
+    var phOverlay = document.getElementById('ph-overlay');
+    var phTrack   = document.getElementById('ph-track');
+    var phDots    = document.getElementById('ph-dots');
+    var phPrev    = document.getElementById('ph-prev');
+    var phNext    = document.getElementById('ph-next');
+    var phCur = 0, phTot = 0;
+
+    function phGoTo(n) {
+      phCur = ((n % phTot) + phTot) % phTot;
+      phTrack.style.transform = 'translateX(-' + (phCur * 100) + '%)';
+      phDots.querySelectorAll('.ph-dot').forEach(function(d, i) {
+        d.classList.toggle('on', i === phCur);
+      });
+    }
+
+    phPrev.addEventListener('click', function() { phGoTo(phCur - 1); });
+    phNext.addEventListener('click', function() { phGoTo(phCur + 1); });
+
+    function openPh(title, caption, imgs) {
+      phCur = 0;
+      phTot = imgs.length;
+      phTrack.innerHTML = '';
+      phDots.innerHTML  = '';
+
+      document.getElementById('ph-title').textContent   = title;
+      document.getElementById('ph-caption').textContent = caption;
+      phPrev.style.display = phTot > 1 ? 'flex' : 'none';
+      phNext.style.display = phTot > 1 ? 'flex' : 'none';
+
+      imgs.forEach(function(src, i) {
+        var slide = document.createElement('div');
+        slide.className = 'ph-slide';
+
+        if (src) {
+          var img = document.createElement('img');
+          img.src = src;
+          img.alt = title;
+          slide.appendChild(img);
+        } else {
+          var ph = document.createElement('div');
+          ph.className = 'ph-slide-ph';
+          ph.innerHTML = '<span>📷</span><div>Upload photo ' + (i + 1) + ' to images/ folder<br>then replace the empty string with the path</div>';
+          slide.appendChild(ph);
+        }
+
+        phTrack.appendChild(slide);
+
+        if (phTot > 1) {
+          var dot = document.createElement('button');
+          dot.className = 'ph-dot' + (i === 0 ? ' on' : '');
+          dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+          (function(idx) {
+            dot.addEventListener('click', function() { phGoTo(idx); });
+          })(i);
+          phDots.appendChild(dot);
+        }
+      });
+
+      phTrack.style.transform = 'translateX(0)';
+      phOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePh() {
+      phOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('ph-close').addEventListener('click', closePh);
+    phOverlay.addEventListener('click', function(e) {
+      if (e.target === phOverlay) closePh();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!phOverlay.classList.contains('open')) return;
+      if (e.key === 'Escape')     closePh();
+      if (e.key === 'ArrowLeft')  phGoTo(phCur - 1);
+      if (e.key === 'ArrowRight') phGoTo(phCur + 1);
     });
 
     // ── SCROLL REVEAL ────────────────────────────────────────────
@@ -764,69 +881,6 @@
       observer.observe(el);
     });
 
-    // ── PHOTO MODAL ─────────────────────────────────────────────
-    var phCur = 0, phTot = 0;
-    var phOverlay = document.getElementById('ph-overlay');
-    var phTrack   = document.getElementById('ph-track');
-    var phDots    = document.getElementById('ph-dots');
-
-    function phGoTo(n) {
-      phCur = ((n % phTot) + phTot) % phTot;
-      phTrack.style.transform = 'translateX(-' + (phCur * 100) + '%)';
-      phDots.querySelectorAll('span').forEach(function(d, i) {
-        d.style.background = i === phCur ? '#C17A5A' : '#E5DDD4';
-      });
-    }
-
-    function phGo(dir) { phGoTo(phCur + dir); }
-
-    function openPh(title, caption, imgs) {
-      phCur = 0;
-      phTot = imgs.length;
-      phTrack.innerHTML = '';
-      phDots.innerHTML  = '';
-      document.getElementById('ph-title').textContent   = title;
-      document.getElementById('ph-caption').textContent = caption;
-      document.getElementById('ph-prev').style.display  = phTot > 1 ? 'flex' : 'none';
-      document.getElementById('ph-next').style.display  = phTot > 1 ? 'flex' : 'none';
-      imgs.forEach(function(src, i) {
-        var slide = document.createElement('div');
-        slide.style.cssText = 'min-width:100%;height:100%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#F2E8E2;';
-        if (src) {
-          var img = document.createElement('img');
-          img.src = src;
-          img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
-          slide.appendChild(img);
-        } else {
-          slide.innerHTML = '<div style="text-align:center;color:#B0A89E;font-family:Jost,sans-serif;font-size:0.75rem;letter-spacing:0.06em;">Photo ' + (i+1) + ' — add image path</div>';
-        }
-        phTrack.appendChild(slide);
-        if (phTot > 1) {
-          var dot = document.createElement('span');
-          dot.style.cssText = 'width:7px;height:7px;border-radius:50%;background:' + (i===0?'#C17A5A':'#E5DDD4') + ';display:inline-block;cursor:pointer;transition:background 0.2s;';
-          dot.onclick = (function(idx){ return function(){ phGoTo(idx); }; })(i);
-          phDots.appendChild(dot);
-        }
-      });
-      phOverlay.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closePh() {
-      phOverlay.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    phOverlay.addEventListener('click', function(e) {
-      if (e.target === phOverlay) closePh();
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closePh();
-      if (e.key === 'ArrowLeft')  phGo(-1);
-      if (e.key === 'ArrowRight') phGo(1);
-    });
   </script>
-
 </body>
 </html>
