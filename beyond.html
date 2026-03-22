@@ -297,12 +297,10 @@
     }
     #ph-track {
       display: flex;
-      width: 100%;
       transition: transform 0.35s ease;
-      align-items: center;
+      will-change: transform;
     }
     .ph-slide {
-      min-width: 100%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -310,11 +308,10 @@
       background: #2c2218;
     }
     .ph-slide img {
-      width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-      background: #2c2218;
       display: block;
+      max-width: 100%;
+      max-height: 65vh;
+      object-fit: contain;
     }
     .ph-slide-ph {
       display: flex;
@@ -805,7 +802,8 @@
 
     function phGoTo(n) {
       phCur = ((n % phTot) + phTot) % phTot;
-      phTrack.style.transform = 'translateX(-' + (phCur * 100) + '%)';
+      var boxW = document.getElementById('ph-box').offsetWidth;
+      phTrack.style.transform = 'translateX(-' + (phCur * boxW) + 'px)';
       phDots.querySelectorAll('.ph-dot').forEach(function(d, i) {
         d.classList.toggle('on', i === phCur);
       });
@@ -830,10 +828,18 @@
         slide.className = 'ph-slide';
 
         if (src) {
-          var img = document.createElement('img');
-          img.src = src;
-          img.alt = title;
-          slide.appendChild(img);
+          if (src.endsWith('.mp4') || src.endsWith('.webm')) {
+            var vid = document.createElement('video');
+            vid.src = src;
+            vid.controls = true;
+            vid.style.cssText = 'max-width:100%;max-height:65vh;';
+            slide.appendChild(vid);
+          } else {
+            var img = document.createElement('img');
+            img.src = src;
+            img.alt = title;
+            slide.appendChild(img);
+          }
         } else {
           var ph = document.createElement('div');
           ph.className = 'ph-slide-ph';
@@ -854,9 +860,18 @@
         }
       });
 
-      phTrack.style.transform = 'translateX(0)';
+      // wait for modal to be visible, then set exact slide widths
       phOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
+
+      setTimeout(function() {
+        var boxW = document.getElementById('ph-box').offsetWidth;
+        phTrack.style.width = (boxW * phTot) + 'px';
+        phTrack.querySelectorAll('.ph-slide').forEach(function(s) {
+          s.style.width = boxW + 'px';
+        });
+        phTrack.style.transform = 'translateX(0)';
+      }, 20);
     }
 
     function closePh() {
