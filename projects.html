@@ -630,7 +630,7 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
           data-photos="🤖:Add screenshot — images/bot1.jpg">
           <div class="slider" id="slider-6">
             <div class="slider-track">
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">🤖</div><div>Add screenshot — images/bot1.jpg</div></div></div>
+              <div class="slide"><img src="images/Bot1.jpg" alt="Bot"></div>
             </div>
             <button class="slider-btn prev" data-dir="-1">&#8592;</button>
             <button class="slider-btn next" data-dir="1">&#8594;</button>
@@ -701,12 +701,18 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
 
       function goTo(n) {
         current = ((n % total) + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        var w = slider.offsetWidth;
+        track.style.width = (w * total) + 'px';
+        slides.forEach(function(s) { s.style.width = w + 'px'; });
+        track.style.transform = 'translateX(-' + (current * w) + 'px)';
       }
+
+      // set correct widths on first load
+      window.addEventListener('load', function() { goTo(0); });
 
       slider.querySelectorAll('.slider-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
-          e.stopPropagation(); // prevent card click
+          e.stopPropagation();
           goTo(current + parseInt(btn.dataset.dir));
         });
       });
