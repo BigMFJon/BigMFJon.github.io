@@ -705,16 +705,18 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
       var total   = slides.length;
       var current = 0;
 
-      function goTo(n) {
-        current = ((n % total) + total) % total;
+      function measure() {
         var w = slider.offsetWidth;
         track.style.width = (w * total) + 'px';
         slides.forEach(function(s) { s.style.width = w + 'px'; });
-        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+        return w;
       }
 
-      // set correct widths on first load
-      window.addEventListener('load', function() { goTo(0); });
+      function goTo(n) {
+        current = ((n % total) + total) % total;
+        var w = measure();
+        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      }
 
       slider.querySelectorAll('.slider-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
@@ -736,8 +738,9 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
 
     function mGoTo(n) {
       mCur = ((n % mTot) + mTot) % mTot;
-      modalTrack.style.transform = 'translateX(-' + (mCur * 100) + '%)';
-      modalDots.querySelectorAll('.mdot').forEach(function(d, i) {
+      var boxW = document.getElementById('modal').offsetWidth;
+      modalTrack.style.transform = 'translateX(-' + (mCur * boxW) + 'px)';
+      modalDots.querySelectorAll('.dot').forEach(function(d, i) {
         d.classList.toggle('on', i === mCur);
       });
     }
@@ -790,9 +793,17 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
         }
       });
 
-      modalTrack.style.transform = 'translateX(0)';
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
+
+      setTimeout(function() {
+        var boxW = document.getElementById('modal').offsetWidth;
+        modalTrack.style.width = (boxW * mTot) + 'px';
+        modalTrack.querySelectorAll('.slide').forEach(function(s) {
+          s.style.width = boxW + 'px';
+        });
+        modalTrack.style.transform = 'translateX(0)';
+      }, 20);
     }
 
     function closeModal() {
