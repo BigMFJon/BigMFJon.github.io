@@ -24,95 +24,78 @@
       flex-direction: column;
       cursor: pointer;
       transition: box-shadow 0.25s, transform 0.25s;
-      position: relative;
     }
-
     .project-card:hover {
-      box-shadow: 0 6px 28px rgba(44, 34, 24, 0.12);
+      box-shadow: 0 6px 28px rgba(44,34,24,0.12);
       transform: translateY(-3px);
     }
 
-    /* ── SLIDER ── */
-    .slider {
+    /* ── CARD SLIDER ── */
+    .card-slider {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      padding-top: 62%;   /* fixed aspect ratio box */
+      background: #2c2218;
       overflow: hidden;
-      background: var(--terra-soft);
     }
-
-    .slider-track {
+    .card-slider-inner {
+      position: absolute;
+      top: 0; left: 0;
       display: flex;
       height: 100%;
       transition: transform 0.35s ease;
-      will-change: transform;
     }
-
-    .slide {
-      min-width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-    }
-
-    .slide img {
+    .card-slide {
+      position: relative;
+      flex: 0 0 100%;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2c2218;
+    }
+    .card-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       display: block;
     }
-
-    .slide-ph {
-      width: 100%;
-      height: 100%;
+    .card-slide-ph {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: 0.4rem;
-      color: var(--dim);
+      color: #7a6a5a;
       font-family: 'Jost', sans-serif;
       font-size: 0.68rem;
-      letter-spacing: 0.05em;
       text-align: center;
       padding: 1rem;
-      background: var(--terra-soft);
     }
+    .card-slide-ph .ph-icon { font-size: 1.6rem; opacity: 0.3; }
 
-    .slide-ph .ph-icon {
-      font-size: 1.8rem;
-      opacity: 0.3;
-      margin-bottom: 0.2rem;
-    }
-
-    .slider-btn {
+    /* arrow buttons on card */
+    .card-arr {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 20;
-      background: rgba(255,255,255,0.9);
+      z-index: 10;
+      background: rgba(255,255,255,0.88);
       border: none;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
+      width: 28px; height: 28px;
+      font-size: 0.8rem;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
       opacity: 0;
       transition: opacity 0.2s;
-      font-size: 0.85rem;
-      color: var(--text);
-      box-shadow: 0 2px 8px rgba(44,34,24,0.18);
-      pointer-events: none;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.2);
     }
-
-    .project-card:hover .slider-btn {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .slider-btn.prev { left: 8px; }
-    .slider-btn.next { right: 8px; }
+    .card-slider:hover .card-arr { opacity: 1; }
+    .card-arr.prev { left: 7px; }
+    .card-arr.next { right: 7px; }
 
     /* ── CARD BODY ── */
     .project-body {
@@ -121,7 +104,6 @@
       flex-direction: column;
       flex: 1;
     }
-
     .project-number {
       font-family: 'Jost', sans-serif;
       font-size: 0.58rem;
@@ -130,7 +112,6 @@
       color: var(--dim);
       margin-bottom: 0.4rem;
     }
-
     .project-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
@@ -139,7 +120,6 @@
       margin-bottom: 0.6rem;
       line-height: 1.2;
     }
-
     .project-desc {
       font-size: 0.86rem;
       color: var(--muted);
@@ -150,7 +130,6 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-
     .project-footer {
       margin-top: 1.1rem;
       padding-top: 0.9rem;
@@ -161,7 +140,6 @@
       flex-wrap: wrap;
       gap: 0.4rem;
     }
-
     .project-year {
       font-family: 'Jost', sans-serif;
       font-size: 0.63rem;
@@ -169,7 +147,6 @@
       text-transform: uppercase;
       color: var(--dim);
     }
-
     .project-status {
       font-family: 'Jost', sans-serif;
       font-size: 0.6rem;
@@ -178,11 +155,9 @@
       padding: 0.26rem 0.65rem;
       border-radius: 3px;
     }
-
     .status-live     { background: var(--sage-soft);  color: var(--sage);  }
     .status-progress { background: var(--terra-soft); color: var(--terra); }
     .status-research { background: #EEF0F8;           color: #5A6AAB;      }
-
     .read-hint {
       font-family: 'Jost', sans-serif;
       font-size: 0.65rem;
@@ -191,24 +166,19 @@
       margin-top: 0.75rem;
     }
 
-    /* ══════════════════════════════════════════
-       MODAL OVERLAY
-    ══════════════════════════════════════════ */
+    /* ── MODAL OVERLAY ── */
     #modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 900;
-      background: rgba(28, 16, 6, 0.52);
+      background: rgba(28,16,6,0.55);
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
       backdrop-filter: blur(4px);
     }
-
-    #modal-overlay.open {
-      display: flex;
-    }
+    #modal-overlay.open { display: flex; }
 
     #modal-box {
       background: var(--surface);
@@ -217,26 +187,23 @@
       max-width: 760px;
       max-height: 88vh;
       overflow-y: auto;
-      box-shadow: 0 16px 56px rgba(28, 16, 6, 0.22);
+      box-shadow: 0 16px 56px rgba(28,16,6,0.22);
       position: relative;
       animation: modalIn 0.26s ease;
     }
-
     @keyframes modalIn {
-      from { opacity: 0; transform: translateY(18px) scale(0.97); }
-      to   { opacity: 1; transform: translateY(0)    scale(1);    }
+      from { opacity:0; transform:translateY(16px) scale(0.97); }
+      to   { opacity:1; transform:translateY(0)    scale(1);    }
     }
 
     #modal-close {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 10px; right: 10px;
       z-index: 10;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       border: 1px solid var(--border);
       border-radius: 50%;
-      width: 34px;
-      height: 34px;
+      width: 34px; height: 34px;
       font-size: 1rem;
       cursor: pointer;
       color: var(--muted);
@@ -245,38 +212,73 @@
       justify-content: center;
       transition: background 0.18s, color 0.18s;
     }
+    #modal-close:hover { background: var(--terra-soft); color: var(--terra); }
 
-    #modal-close:hover {
-      background: var(--terra-soft);
-      color: var(--terra);
-    }
-
-    /* modal slider */
+    /* ── MODAL SLIDER ── */
     #modal-slider {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 7;
-      overflow: hidden;
-      background: var(--terra-soft);
+      background: #2c2218;
       border-radius: 10px 10px 0 0;
+      overflow: hidden;
     }
-
-    #modal-slider .slider-track {
-      height: 100%;
+    #modal-slider-inner {
+      display: flex;
+      transition: transform 0.35s ease;
     }
-
-    #modal-slider .slider-btn {
-      opacity: 0.9;
-      pointer-events: all;
-      width: 36px;
-      height: 36px;
+    .modal-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2c2218;
+      padding: 1rem;
     }
-
-    #modal-slider .slider-btn:hover {
-      opacity: 1;
+    .modal-slide img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
     }
+    .modal-slide-ph {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #7a6a5a;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      text-align: center;
+      padding: 2rem;
+    }
+    .modal-slide-ph span { font-size: 2rem; opacity: 0.3; }
 
-    .modal-dots {
+    .modal-arr {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.88);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      z-index: 5;
+      transition: background 0.15s;
+    }
+    .modal-arr:hover { background: #fff; }
+    #modal-prev { left: 10px; }
+    #modal-next { right: 10px; }
+
+    #modal-dots {
       position: absolute;
       bottom: 10px;
       left: 50%;
@@ -285,70 +287,58 @@
       gap: 6px;
       z-index: 5;
     }
-
     .mdot {
-      width: 6px;
-      height: 6px;
+      width: 7px; height: 7px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.45);
-      transition: background 0.2s, transform 0.2s;
+      background: rgba(255,255,255,0.4);
+      border: none;
       cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
     }
+    .mdot.on { background: #fff; transform: scale(1.25); }
 
-    .mdot.on {
-      background: #fff;
-      transform: scale(1.25);
-    }
-
-    /* modal text */
-    #modal-content {
-      padding: 2rem 2.5rem 2.5rem;
-    }
-
+    /* ── MODAL CONTENT ── */
+    #modal-content { padding: 1.8rem 2rem 2rem; }
     #modal-tag {
       font-family: 'Jost', sans-serif;
       font-size: 0.62rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--sage);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
-
     #modal-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 1.75rem;
       font-weight: 400;
       color: var(--text);
       line-height: 1.15;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
-
     #modal-body {
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       color: var(--muted);
-      line-height: 1.84;
-      margin-bottom: 1.5rem;
+      line-height: 1.82;
+      margin-bottom: 1.2rem;
       white-space: pre-line;
     }
-
+    #modal-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     #modal-meta {
       display: flex;
       align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
-      padding-top: 1.2rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
       border-top: 1px solid var(--border);
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 580px) {
       .projects-grid { grid-template-columns: 1fr; }
-      #modal-content { padding: 1.5rem; }
-      #modal-title { font-size: 1.5rem; }
+      #modal-content { padding: 1.2rem; }
+      #modal-title { font-size: 1.4rem; }
     }
 
   </style>
@@ -366,24 +356,25 @@
   </nav>
 
   <!-- ═══ PAGE HERO ═══ -->
-  <section class="section" style="padding-bottom: 2rem;">
+  <section class="section" style="padding-bottom:2rem;">
     <div class="container">
       <div class="eyebrow">Portfolio</div>
-      <h1 style="margin-bottom: 1rem;">Things I've <em>built</em></h1>
+      <h1 style="margin-bottom:1rem;">Things I've <em>built</em></h1>
       <p class="lead">Hardware, software, research and design — click any card to read the full story.</p>
     </div>
   </section>
 
   <!-- ═══ PROJECTS GRID ═══ -->
-  <section class="section" style="padding-top: 1rem;">
+  <section class="section" style="padding-top:1rem;">
     <div class="container">
-      <div class="projects-grid" id="projects-grid">
+      <div class="projects-grid">
 
-        <!-- ─────────────────────────────
-          Each .project-card stores all its
-          data in data-* attributes.
-          The JS reads them to fill the modal.
-        ───────────────────────────────── -->
+        <!-- ─────────────────────────────────────────
+          HOW TO ADD PHOTOS:
+          Replace <div class="card-slide-ph">...</div>
+          inside any <div class="card-slide"> with:
+          <img src="images/yourphoto.jpg" alt="description">
+        ───────────────────────────────────────── -->
 
         <!-- 01 CNC -->
         <div class="project-card reveal"
@@ -393,27 +384,30 @@
           data-year="2022 – 2023 · Trier, Germany"
           data-status="live" data-status-label="Still in use"
           data-chips="CAD,CNC Programming,Arduino,Flow Sensors"
-          data-short="Fully functional CNC-controlled rain simulator built for my bachelor thesis. Designed in CAD, programmed the motion controller and calibrated flow from scratch. Still in use today."
+          data-short="Fully functional CNC-controlled rain simulator built for my bachelor thesis."
           data-full="Built for my bachelor thesis at Trier University of Applied Sciences. I designed the full machine in CAD from scratch, wrote the motion controller code, and calibrated the flow sensors manually through many iterations.
 
-The goal was to simulate real rainfall patterns on a small scale for soil erosion research. The machine is still used today for school demonstrations, which I consider the best possible outcome for any project.
+The goal was to simulate real rainfall patterns on a small scale for soil erosion research. The machine is still used today for school demonstrations — which I consider the best possible outcome for any project.
 
-It taught me that hardware is unforgiving: every tolerance matters, every connection matters, and debugging a physical system is a completely different skill from debugging code."
-          data-photos="🏗️:Add photo — images/cnc1.jpg,⚙️:Add photo — images/cnc2.jpg">
-          <div class="slider" id="slider-0">
-            <div class="slider-track">
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">🏗️</div><div>Add photo — images/cnc1.jpg</div></div></div>
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">⚙️</div><div>Add photo — images/cnc2.jpg</div></div></div>
+It taught me that hardware is unforgiving: every tolerance matters, every connection matters, and debugging a physical system is a completely different skill from debugging code.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🏗️</div><div>Add photo — images/cnc1.jpg</div></div>
+              </div>
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">⚙️</div><div>Add photo — images/cnc2.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">01</div>
             <div class="card-tag">Hardware · CNC · Automation</div>
             <div class="project-title">CNC Rain Simulator</div>
-            <p class="project-desc">Fully functional CNC-controlled rain simulator built for my bachelor thesis. Designed in CAD, programmed the motion controller and calibrated flow sensors from scratch. Still in use today.</p>
-            <div class="chips"><span class="chip">CAD</span><span class="chip">CNC Programming</span><span class="chip">Marlin</span><span class="chip">Arduino</span></div>
+            <p class="project-desc">Fully functional CNC-controlled rain simulator built for my bachelor thesis. Designed in CAD, programmed the motion controller and calibrated flow sensors from scratch.</p>
+            <div class="chips"><span class="chip">CAD</span><span class="chip">CNC Programming</span><span class="chip">Arduino</span></div>
             <div class="project-footer">
               <span class="project-year">2022 – 2023 · Trier</span>
               <span class="project-status status-live">Still in use</span>
@@ -425,25 +419,28 @@ It taught me that hardware is unforgiving: every tolerance matters, every connec
         <!-- 02 GEE -->
         <div class="project-card reveal"
           data-number="02"
-          data-tag="Remote Sensing · ML · GEE"
-          data-title="GEE App"
+          data-tag="Remote Sensing · ML · Python"
+          data-title="Google Earth Engine Resource App"
           data-year="2023 · UC Davis, California"
           data-status="research" data-status-label="Research"
-          data-chips="Python API,Google Earth Engine,Machine Learning,Spatial Analysis"
-          data-short="ML models via Google Earth Engine to analyse satellite imagery and model resource allocation patterns at scale. Built during a UC Davis research fellowship."
-          data-full="Built during a research fellowship at UC Davis and continued development (Link: https://ee-bekzhonov.projects.earthengine.app/view/khorezm-water-supply). I used ML models for classifiers via the Google Earth Engine to analyse satellite imagery  (Sentinel 2 and Planet Labs with private API for scientists) and model how resources move and get allocated across large geographic areas.
+          data-chips="Python,Google Earth Engine,Machine Learning,Spatial Analysis"
+          data-short="ML models via Google Earth Engine Python API to analyse satellite imagery."
+          data-full="Built during a research fellowship at UC Davis. I used machine learning models via the Google Earth Engine Python API to analyse satellite imagery and model how resources move and get allocated across large geographic areas.
 
-Working with real satellite data from Sentinel, Planet Labs and Landsat at scale was a bit of a challenge compared to implementing 'typical' built-in ML projects: the data is massive, the coordinate systems are tricky, and the visualisation requires its own skills.
+Working with real satellite data at scale was a completely different challenge from typical ML projects: the data is massive, the coordinate systems are tricky, and the visualisation requires its own skills.
 
-This project to date gives me things to work on such as getting access to higher resolution data from Planet Labs to build my own app that predicts and suggests paths for running and biking and other activities."
-          data-photos="🛰️:Add photo — images/gee1.jpg,🗺️:Add photo — images/gee2.jpg">
-          <div class="slider" id="slider-1">
-            <div class="slider-track">
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">🛰️</div><div>Add photo — images/gee1.jpg</div></div></div>
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">🗺️</div><div>Add photo — images/gee2.jpg</div></div></div>
+This project gave me a deep appreciation for geospatial data and opened my interest in how remote sensing can drive real policy decisions.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🛰️</div><div>Add photo — images/gee1.jpg</div></div>
+              </div>
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🗺️</div><div>Add photo — images/gee2.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">02</div>
@@ -463,33 +460,36 @@ This project to date gives me things to work on such as getting access to higher
         <div class="project-card reveal"
           data-number="03"
           data-tag="Energy · Climate · Data Analysis"
-          data-title="Swedish Energy Agency Thesis"
-          data-year="2025 · Munich & Lund"
+          data-title="Swedish Energy Agency Study"
+          data-year="2024 – 2025 · Munich & Lund"
           data-status="research" data-status-label="Paper in review"
-          data-chips="Python,Statistical Analysis,Energy Modelling"
-          data-short="Master's thesis contributing to a paper connected to the Swedish Energy Agency. Analyzed energy use and behavior along with climate dynamics using self collected data."
-          data-full="My master's thesis at TU Munich and Lund University, developed in collaboration with research connected to the Swedish Energy Agency and Swedish Housing Agency. I analysed energy loss and occupant behaviour and climate dynamics using data data collected from different parts of Sweden throughout one year using custom built angle, RH, CO2 and temperature sensors.
+          data-chips="Python,Atmospheric Data,Energy Modelling,Remote Sensing"
+          data-short="Master's thesis contributing to a paper connected to the Swedish Energy Agency."
+          data-full="My master's thesis at TU Munich, developed in collaboration with research connected to the Swedish Energy Agency. I modelled atmospheric energy transfer and climate dynamics using remote sensing data.
 
 Specifically I looked at how water vapour transports energy through the atmosphere and what that means for regional energy balances. The work combined data from my time at Lund University during my exchange semester.
 
-The paper is currently under review. This project pushed my scientific writing, data handling at scale, and ability to communicate complex results clearly to non-specialist audiences."
-          data-photos="⚡:Add photo — images/energy1.jpg,🌲:Add photo — images/energy2.jpg">
-          <div class="slider" id="slider-2">
-            <div class="slider-track">
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">⚡</div><div>Add photo — images/energy1.jpg</div></div></div>
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">🌲</div><div>Add photo — images/energy2.jpg</div></div></div>
+The paper is currently under review.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">⚡</div><div>Add photo — images/energy1.jpg</div></div>
+              </div>
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🌲</div><div>Add photo — images/energy2.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">03</div>
             <div class="card-tag">Energy · Climate · Data Analysis</div>
             <div class="project-title">Swedish Energy Agency Study</div>
             <p class="project-desc">Master's thesis contributing to a paper connected to the Swedish Energy Agency. Modelled energy transfer and climate dynamics using atmospheric remote sensing data.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Data Collection & Analysis</span><span class="chip">Energy Modelling</span></div>
+            <div class="chips"><span class="chip">Python</span><span class="chip">Atmospheric Data</span><span class="chip">Energy Modelling</span></div>
             <div class="project-footer">
-              <span class="project-year">2025 · Munich & Lund</span>
+              <span class="project-year">2024 – 2025 · Munich & Lund</span>
               <span class="project-status status-research">Paper in review</span>
             </div>
             <div class="read-hint">Click anywhere to read more →</div>
@@ -500,35 +500,36 @@ The paper is currently under review. This project pushed my scientific writing, 
         <div class="project-card reveal"
           data-number="04"
           data-tag="Web Design · HTML · CSS · JS"
-          data-title="milacosmic.ru"
-          data-year="2025 · Remote"
+          data-title="Massage Salon Website"
+          data-year="2024 · Remote"
           data-status="live" data-status-label="Live"
           data-chips="HTML,CSS,JavaScript,SEO,Responsive Design"
-          data-short="Designed and built a complete website for my sister's massage salon. Fully responsive, SEO-friendly, with a working booking inquiry form. Pure HTML, CSS and JS — no frameworks."
-          data-full="My sister asked me to help build a landing page for her massage studio.
-          
-Built with Astro.js — a JavaScript framework that generates fast static HTML pages. Wrote all the content, layout and styles myself (HTML + CSS inside Astro components), occasionally used the Codex plugin for suggestions.
+          data-short="Complete website for my sister's massage salon — responsive, SEO-friendly, booking form included."
+          data-full="My sister asked me to build a website for her massage salon. I took it seriously: designed the visual identity, wrote all the copy, built the booking inquiry form, and made sure the site was SEO-friendly and fully responsive on mobile.
 
-For a test/preview environment used GitHub + Cloudflare Pages — you push code to GitHub and Cloudflare automatically builds and hosts it at a temporary URL, free of charge.
-          
-For the real production site bought a domain on reg.ru and set up hosting there. Published the final site manually using the file manager reg.ru provides in their control panel. Configured the server settings and deployed everything myself."
-          data-photos="💻:Add screenshot — images/salon1.jpg,📱:Add screenshot — images/salon2.jpg">
-          <div class="slider" id="slider-3">
-            <div class="slider-track">
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">💻</div><div>Add screenshot — images/salon1.jpg</div></div></div>
-              <div class="slide"><div class="slide-ph"><div class="ph-icon">📱</div><div>Add screenshot — images/salon2.jpg</div></div></div>
+Everything was built from scratch in HTML, CSS and JavaScript — no frameworks, no WordPress, no templates.
+
+The site is live and actively brings in clients.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">💻</div><div>Add screenshot — images/salon1.jpg</div></div>
+              </div>
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">📱</div><div>Add screenshot — images/salon2.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">04</div>
             <div class="card-tag">Web Design · HTML · CSS · JS</div>
             <div class="project-title">Massage Salon Website</div>
-            <p class="project-desc">Designed and built a complete website for my sister's massage salon. Fully responsive, SEO-friendly, with a working booking inquiry form. Pure HTML, CSS and JS — no frameworks.</p>
+            <p class="project-desc">Designed and built a complete website for my sister's salon. Fully responsive, SEO-friendly, with a working booking inquiry form. Pure HTML, CSS and JS — no frameworks.</p>
             <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">SEO</span></div>
             <div class="project-footer">
-              <span class="project-year">2025 · Remote</span>
+              <span class="project-year">2024 · Remote</span>
               <span class="project-status status-live">Live</span>
             </div>
             <div class="read-hint">Click anywhere to read more →</div>
@@ -538,32 +539,35 @@ For the real production site bought a domain on reg.ru and set up hosting there.
         <!-- 05 German App -->
         <div class="project-card reveal"
           data-number="05"
-          data-tag="Android · TypeScript · EdTech"
-          data-title="Wörter"
+          data-tag="Android · Kotlin · EdTech"
+          data-title="German Learning App"
           data-year="2025 · Munich"
           data-status="progress" data-status-label="In progress"
-          data-chips="TypeScript,React Native,Expo,AsyncStorage"
-          data-short="Native Android app to accelerate my B2 → C1 German journey. Spaced repetition engine, grammar drill modes and daily streak tracking — built in Expo."
-          data-full="I needed to get from B2 to C1 German and kept writing words down in Notes with no system. So built a proper app for it.
-          
-Used React Native + Expo. Designed all the screens myself — word list, flashcard practice, progress stats. For spaced repetition (so the app knows which words to show more often) implemented the SM-2 algorithm, same one Anki uses.
-Started in the browser with Snack by Expo so no setup was needed upfront. When it came to building a real APK, used EAS Build — compiles in the cloud, no Android Studio needed. Deployed to Pixel 7 directly via the APK download link.
-Ran into the usual React Native dependency hell — version mismatches between reanimated, gesture handler, and the newer Expo SDK. Fixed by stripping unnecessary packages and aligning versions manually."
-          data-photos="📱:Add screenshot — images/germanapp1.jpg,🃏:Add screenshot — images/germanapp2.jpg">
-          <div class="slider" id="slider-4">
-            <div class="slider-track">
-              <div class="slide"><img src="images/Milena1.jpg" alt="drone"></div>
-              <div class="slide"><img src="images/Milena2.jpg" alt="drone"></div>
+          data-chips="Kotlin,Android SDK,Room DB,Spaced Repetition"
+          data-short="Native Android app to accelerate my B2 → C1 German journey."
+          data-full="I needed to get from B2 to C1 German for professional reasons. Instead of using an existing app, I decided to build one tailored exactly to my weak spots — which turned out to be a much better learning strategy.
+
+The app uses a spaced repetition engine for vocabulary, a grammar drill mode for cases and verb conjugation, and a daily streak system to keep consistency. It is built natively in Kotlin for Android.
+
+The project is in active development and I use it daily to prepare for my C1 exam.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">📱</div><div>Add screenshot — images/germanapp1.jpg</div></div>
+              </div>
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🃏</div><div>Add screenshot — images/germanapp2.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">05</div>
-            <div class="card-tag">NativeDev · Expo · EdTech</div>
+            <div class="card-tag">Android · Kotlin · EdTech</div>
             <div class="project-title">German Learning App</div>
             <p class="project-desc">Native Android app to accelerate my B2 → C1 German journey. Spaced repetition engine, grammar drill modes and daily streak tracking — built in Kotlin.</p>
-            <div class="chips"><span class="chip">React Native</span><span class="chip">AsyncStorage</span><span class="chip">Expo</span></div>
+            <div class="chips"><span class="chip">Kotlin</span><span class="chip">Android SDK</span><span class="chip">Room DB</span></div>
             <div class="project-footer">
               <span class="project-year">2025 · Munich</span>
               <span class="project-status status-progress">In progress</span>
@@ -576,32 +580,34 @@ Ran into the usual React Native dependency hell — version mismatches between r
         <div class="project-card reveal"
           data-number="06"
           data-tag="Aerospace · Avionics · Embedded"
-          data-title="Kolibri"
+          data-title="Horyzn Aerospace"
           data-year="2023 – 2024 · TU Munich"
           data-status="live" data-status-label="Completed"
-          data-chips="Embedded Systems,Flight Control,Sensor Integration,Arduino,QGroundControl"
-          data-short="Avionics engineer at TU Munich's student aerospace team. Flight control systems, embedded software and sensor integration for production eVTOL (Colibri)."
-          data-full="Horyzn is TU Munich's student aerospace team. I joined as a software and avionics engineer and worked on flight control systems, embedded software and sensor integration for the team's eVTOL.
+          data-chips="Embedded Systems,Flight Control,Sensor Integration,C++"
+          data-short="Software and avionics engineer at TU Munich's student aerospace team."
+          data-full="Horyzn is TU Munich's student aerospace team. I joined as a software and avionics engineer and worked on flight control systems, embedded software and sensor integration for the team's UAV.
 
-The environment was quite demanding, as it required working with hardware, safety constraints and tons of dependencies alongside a team that expected professional engineering standards despite everyone being a student.
+The environment was genuinely demanding: real hardware, real safety constraints, and a team that expected professional engineering standards despite everyone being a student.
 
-I do believe it gave me a level of systems thinking and engineering discipline I would not have developed in a purely software or research context. Working under those conditions also taught me how to prioritise regardless of feelings when everything seems urgent."
-          data-photos="✈️:Add photo — images/horyzn1.jpg,🔧:Add photo — images/horyzn2.jpg">
-          <div class="slider" id="slider-5">
-            <div class="slider-track">
-              <div class="slide"><img src="images/horyzn1.jpg" alt="drone"></div>
-              <div class="slide"><img src="images/horyzn2.jpg" alt="drone"></div>
-              <div class="slide"><img src="images/horyzn3.jpg" alt="drone"></div>
+It gave me a level of systems thinking and engineering discipline I could not have developed in a purely software or research context.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">✈️</div><div>Add photo — images/horyzn1.jpg</div></div>
+              </div>
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🔧</div><div>Add photo — images/horyzn2.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">06</div>
             <div class="card-tag">Aerospace · Avionics · Embedded</div>
             <div class="project-title">Horyzn Aerospace</div>
             <p class="project-desc">Software and avionics engineer at TU Munich's student aerospace team. Flight control systems, embedded software and sensor integration under real engineering constraints.</p>
-            <div class="chips"><span class="chip">Embedded Systems</span><span class="chip">Flight Control</span><span class="chip">QGroundControl</span></div>
+            <div class="chips"><span class="chip">Embedded Systems</span><span class="chip">Flight Control</span><span class="chip">C++</span></div>
             <div class="project-footer">
               <span class="project-year">2023 – 2024 · TU Munich</span>
               <span class="project-status status-live">Completed</span>
@@ -615,40 +621,32 @@ I do believe it gave me a level of systems thinking and engineering discipline I
           data-number="07"
           data-tag="Python · Automation · Bot"
           data-title="Telegram Bot"
-          data-year="2025 - 2026 · Shanghai"
+          data-year="Add year · Add location"
           data-status="progress" data-status-label="In progress"
           data-chips="Python,Telegram API,Automation"
-          data-short="Telegram recently added gifts inside the messenger — collectible items you can buy, send, and store, which can be converted into NFTs. Wanted to explore Telegram's bot infrastructure and the NFT side of it, and potentially flip gifts for profit."
-          data-full="This bot monitors Telegram for new gift drops in real time and automatically buys them the moment they appear. Telegram Gifts are limited-edition animated collectibles that function as NFTs — they can be transferred between users or sold on NFT marketplaces.
+          data-short="Add your short description here."
+          data-full="Add your full description here.
 
-Limited gifts sell out within minutes of release. Manually watching and buying fast enough is nearly impossible. The bot removes the human reaction time entirely — it detects a new gift and executes the purchase in under 1 second.
+What does the bot do? What problem does it solve? Who uses it? How did you build it? What did you learn?
 
-Built for personal use and anyone looking to collect or flip limited Telegram gifts for profit.
-
-Node.js backend written in TypeScript, communicating with the Telegram Bot API. The bot runs continuously, polling for new gifts, sending notifications to the user, and executing purchases automatically based on pre-configured orders (price range, quantity). Also supports manual mode — get notified, preview the gift, then buy on click.
-
-How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a real product context rather than just theory. Bot detected new releases 5 times with sub-1-second delay and successfully purchased over 10 limited gifts including a Snoop Dogg x Telegram collaboration drop."
-          data-photos="🤖:Add screenshot — images/bot1.jpg">
-          <div class="slider" id="slider-6">
-            <div class="slider-track">
-              <div class="slide"><img src="images/Bot1.jpg" alt="Bot"></div>
-              <div class="slide"><img src="images/Bot2.jpg" alt="Bot"></div>
-              <div class="slide"><img src="images/Bot3.jpg" alt="Bot"></div>
-              <div class="slide"><img src="images/Bot6.jpg" alt="Bot"></div>
-              <div class="slide"><img src="images/Bot4.jpg" alt="Bot"></div>
-              <div class="slide"><img src="images/Bot5.jpg" alt="Bot"></div>
+Edit this in projects.html — find data-full on this card.">
+          <div class="card-slider">
+            <div class="card-slider-inner">
+              <div class="card-slide">
+                <div class="card-slide-ph"><div class="ph-icon">🤖</div><div>Add screenshot — images/bot1.jpg</div></div>
+              </div>
             </div>
-            <button class="slider-btn prev" data-dir="-1">&#8592;</button>
-            <button class="slider-btn next" data-dir="1">&#8594;</button>
+            <button class="card-arr prev">&#8592;</button>
+            <button class="card-arr next">&#8594;</button>
           </div>
           <div class="project-body">
             <div class="project-number">07</div>
-            <div class="card-tag">API · Automation · Bot</div>
+            <div class="card-tag">Python · Automation · Bot</div>
             <div class="project-title">Telegram Bot</div>
             <p class="project-desc">Add your short description here — what the bot does and why you built it.</p>
-            <div class="chips"><span class="chip">TypeScript</span><span class="chip">Telegram Bot API</span><span class="chip">Node.js</span></div>
+            <div class="chips"><span class="chip">Python</span><span class="chip">Telegram API</span><span class="chip">Automation</span></div>
             <div class="project-footer">
-              <span class="project-year">2025-2026· Shanghai</span>
+              <span class="project-year">Add year</span>
               <span class="project-status status-progress">In progress</span>
             </div>
             <div class="read-hint">Click anywhere to read more →</div>
@@ -661,7 +659,7 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
 
   <!-- ═══ FOOTER ═══ -->
   <footer>
-    <span>Bekzhon Bekzhonov · Wiesbaden, 2026</span>
+    <span>Bekzhon Bekzhonov · Munich, 2026</span>
     <span>
       <a href="mailto:bekzhonov@gmail.com" style="color:var(--dim);margin-right:1.5rem;">bekzhonov@gmail.com</a>
       <a href="tel:+491789159890" style="color:var(--dim);">+49 178 915 9890</a>
@@ -671,18 +669,13 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
   <!-- ═══ MODAL ═══ -->
   <div id="modal-overlay">
     <div id="modal-box">
-
       <button id="modal-close">&#10005;</button>
-
-      <!-- Modal photo slider -->
       <div id="modal-slider">
-        <div class="slider-track" id="modal-track"></div>
-        <button class="slider-btn prev" id="modal-prev">&#8592;</button>
-        <button class="slider-btn next" id="modal-next">&#8594;</button>
-        <div class="modal-dots" id="modal-dots"></div>
+        <div id="modal-slider-inner"></div>
+        <button class="modal-arr" id="modal-prev">&#8592;</button>
+        <button class="modal-arr" id="modal-next">&#8594;</button>
+        <div id="modal-dots"></div>
       </div>
-
-      <!-- Modal text -->
       <div id="modal-content">
         <div id="modal-tag"></div>
         <div id="modal-title"></div>
@@ -693,117 +686,124 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
           <span class="project-status" id="modal-status"></span>
         </div>
       </div>
-
     </div>
   </div>
 
   <script>
-    // ── CARD SLIDERS ─────────────────────────────────────────────
-    document.querySelectorAll('.projects-grid .slider').forEach(function(slider) {
-      var track   = slider.querySelector('.slider-track');
-      var slides  = slider.querySelectorAll('.slide');
-      var total   = slides.length;
-      var current = 0;
 
-      function measure() {
-        var w = slider.offsetWidth;
-        track.style.width = (w * total) + 'px';
-        slides.forEach(function(s) { s.style.width = w + 'px'; });
-        return w;
-      }
+    // ── CARD SLIDERS ─────────────────────────────────────────────
+    // Simple index-based — no pixel measurement needed
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      var inner  = card.querySelector('.card-slider-inner');
+      var slides = card.querySelectorAll('.card-slide');
+      var total  = slides.length;
+      var cur    = 0;
 
       function goTo(n) {
-        current = ((n % total) + total) % total;
-        var w = measure();
-        track.style.transform = 'translateX(-' + (current * w) + 'px)';
+        cur = ((n % total) + total) % total;
+        inner.style.transform = 'translateX(-' + (cur * 100) + '%)';
       }
 
-      slider.querySelectorAll('.slider-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          goTo(current + parseInt(btn.dataset.dir));
-        });
+      var prevBtn = card.querySelector('.card-arr.prev');
+      var nextBtn = card.querySelector('.card-arr.next');
+
+      if (prevBtn) prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        goTo(cur - 1);
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        goTo(cur + 1);
       });
     });
 
-    // ── MODAL ─────────────────────────────────────────────────────
+    // ── MODAL ────────────────────────────────────────────────────
     var overlay    = document.getElementById('modal-overlay');
-    var modalClose = document.getElementById('modal-close');
-    var modalTrack = document.getElementById('modal-track');
-    var modalPrev  = document.getElementById('modal-prev');
-    var modalNext  = document.getElementById('modal-next');
-    var modalDots  = document.getElementById('modal-dots');
-    var mCur = 0;
-    var mTot = 0;
+    var mInner     = document.getElementById('modal-slider-inner');
+    var mDots      = document.getElementById('modal-dots');
+    var mPrev      = document.getElementById('modal-prev');
+    var mNext      = document.getElementById('modal-next');
+    var mCur = 0, mTot = 0;
 
     function mGoTo(n) {
       mCur = ((n % mTot) + mTot) % mTot;
-      var boxW = document.getElementById('modal').offsetWidth;
-      modalTrack.style.transform = 'translateX(-' + (mCur * boxW) + 'px)';
-      modalDots.querySelectorAll('.dot').forEach(function(d, i) {
+      mInner.style.transform = 'translateX(-' + (mCur * 100) + '%)';
+      mDots.querySelectorAll('.mdot').forEach(function(d, i) {
         d.classList.toggle('on', i === mCur);
       });
     }
 
-    modalPrev.addEventListener('click', function() { mGoTo(mCur - 1); });
-    modalNext.addEventListener('click', function() { mGoTo(mCur + 1); });
+    mPrev.addEventListener('click', function() { mGoTo(mCur - 1); });
+    mNext.addEventListener('click', function() { mGoTo(mCur + 1); });
 
     function openModal(card) {
-      // Fill text
+      // text
       document.getElementById('modal-tag').textContent   = card.dataset.tag   || '';
       document.getElementById('modal-title').textContent = card.dataset.title  || '';
       document.getElementById('modal-body').textContent  = card.dataset.full   || '';
       document.getElementById('modal-year').textContent  = card.dataset.year   || '';
 
-      // Status badge
+      // status
       var statusEl = document.getElementById('modal-status');
       var s = card.dataset.status || '';
       statusEl.textContent = card.dataset.statusLabel || '';
       statusEl.className   = 'project-status ' +
         (s === 'live' ? 'status-live' : s === 'progress' ? 'status-progress' : 'status-research');
 
-      // Chips
+      // chips
       var chipsEl = document.getElementById('modal-chips');
       chipsEl.innerHTML = '';
       (card.dataset.chips || '').split(',').forEach(function(c) {
         var span = document.createElement('span');
-        span.className   = 'chip';
+        span.className = 'chip';
         span.textContent = c.trim();
         chipsEl.appendChild(span);
       });
 
-      // Copy slides from card into modal
-      var cardSlides = card.querySelectorAll('.slider .slide');
+      // build modal slides from card slides
+      var cardSlides = card.querySelectorAll('.card-slide');
       mTot = cardSlides.length;
       mCur = 0;
-      modalTrack.innerHTML = '';
-      modalDots.innerHTML  = '';
-      document.getElementById('modal-slider').style.display = mTot > 0 ? 'block' : 'none';
-      modalPrev.style.display = mTot > 1 ? 'flex' : 'none';
-      modalNext.style.display = mTot > 1 ? 'flex' : 'none';
+      mInner.innerHTML = '';
+      mDots.innerHTML  = '';
+      mInner.style.transform = 'translateX(0)';
 
-      cardSlides.forEach(function(slide, i) {
-        var clone = slide.cloneNode(true);
-        modalTrack.appendChild(clone);
+      // set modal slider width to accommodate all slides
+      mInner.style.width = (mTot * 100) + '%';
+
+      cardSlides.forEach(function(cs, i) {
+        var ms = document.createElement('div');
+        ms.className = 'modal-slide';
+        ms.style.width = (100 / mTot) + '%';
+
+        var img = cs.querySelector('img');
+        if (img) {
+          var newImg = document.createElement('img');
+          newImg.src = img.src;
+          newImg.alt = img.alt || '';
+          ms.appendChild(newImg);
+        } else {
+          var ph = document.createElement('div');
+          ph.className = 'modal-slide-ph';
+          ph.innerHTML = '<span>📷</span><div style="margin-top:0.4rem">No photo yet</div>';
+          ms.appendChild(ph);
+        }
+
+        mInner.appendChild(ms);
+
         if (mTot > 1) {
-          var dot = document.createElement('div');
+          var dot = document.createElement('button');
           dot.className = 'mdot' + (i === 0 ? ' on' : '');
-          dot.addEventListener('click', function() { mGoTo(i); });
-          modalDots.appendChild(dot);
+          (function(idx) { dot.addEventListener('click', function() { mGoTo(idx); }); })(i);
+          mDots.appendChild(dot);
         }
       });
 
+      mPrev.style.display = mTot > 1 ? 'flex' : 'none';
+      mNext.style.display = mTot > 1 ? 'flex' : 'none';
+
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-
-      setTimeout(function() {
-        var boxW = document.getElementById('modal').offsetWidth;
-        modalTrack.style.width = (boxW * mTot) + 'px';
-        modalTrack.querySelectorAll('.slide').forEach(function(s) {
-          s.style.width = boxW + 'px';
-        });
-        modalTrack.style.transform = 'translateX(0)';
-      }, 20);
     }
 
     function closeModal() {
@@ -811,32 +811,21 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
       document.body.style.overflow = '';
     }
 
-    // Attach click to every card
+    // click card = open modal
     document.querySelectorAll('.project-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        openModal(card);
-      });
+      card.addEventListener('click', function() { openModal(card); });
     });
 
-    modalClose.addEventListener('click', closeModal);
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeModal();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeModal();
-    });
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
-    // ── SCROLL REVEAL ─────────────────────────────────────────────
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+    // ── SCROLL REVEAL ────────────────────────────────────────────
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 
-    document.querySelectorAll('.reveal').forEach(function(el) {
-      observer.observe(el);
-    });
   </script>
-
 </body>
 </html>
