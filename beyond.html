@@ -289,29 +289,32 @@
     #ph-close:hover { background: var(--terra-soft); color: var(--terra); }
     #ph-slider {
       position: relative;
-      aspect-ratio: 16 / 8;
-      background: var(--terra-soft);
+      background: #2c2218;
       overflow: hidden;
+      max-height: 70vh;
+      display: flex;
+      align-items: center;
     }
     #ph-track {
       display: flex;
-      height: 100%;
+      width: 100%;
       transition: transform 0.35s ease;
+      align-items: center;
     }
     .ph-slide {
       min-width: 100%;
-      height: 100%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--terra-soft);
+      background: #2c2218;
     }
     .ph-slide img {
       width: 100%;
-      height: 100%;
+      max-height: 70vh;
       object-fit: contain;
-      background: #f7f4ef;
+      background: #2c2218;
+      display: block;
     }
     .ph-slide-ph {
       display: flex;
@@ -489,7 +492,7 @@
 
         <!-- CLICKABLE: Head of People & Culture -->
         <div class="lead-card clickable reveal"
-             onclick="openPh('Head of People & Culture', 'TUM Case Club · Munich · 2023–2025', ['images/TCC1.jpg','images/TCC2.jpg','images/TCC4.jpg', 'images/TCC3.mp4'])">
+             onclick="openPh('Head of People & Culture', 'TUM Case Club · Munich · 2023–2025', ['images/TCC1.jpg','images/TCC2.jpg','images/TCC4.jpg'])">
           <div class="lead-icon">🎓</div>
           <div>
             <div class="lead-title">Head of People & Culture</div>
@@ -594,9 +597,9 @@
   <div class="beyond-section" style="background:var(--surface);">
     <div class="container">
       <div class="eyebrow reveal">Hackathons & competitions</div>
-      <h2 class="reveal">Learning fastest <em>under pressure</em></h2>
+      <h2 class="reveal">Learning new things<em> by doing</em></h2>
       <p class="body-text reveal" style="max-width:560px;">
-        I learn best by doing and by testing ideas under real constraints with real stakes.
+        I realize that I learn best by doing and by testing ideas under real constraints with real stakes.
       </p>
       <div class="hack-grid">
 
@@ -614,7 +617,7 @@
              onclick="openPh('FloReST Project', '2022–2023 · Trier University', ['',''])">
           <div class="hack-year">2022–2023</div>
           <div class="hack-title">FloReST Project</div>
-          <p class="hack-desc">Sustainability research project at Trier University. Add detail about the project scope, your contribution and the outcomes.</p>
+          <p class="hack-desc">The project FloReST focuses on measures to increase the resilience of urban infrastructure in case of heavy rainfall and flash flood events. The aim is the development of innovative, technology-based solutions for a load-dependent and -independent evaluation of emergency drainage routes. Overall, a “tool set” of “smart tools” is created, which allows a selection of technically innovative and future-oriented tools to be adapted for locally high-resolution planning and the evaluation of emergency drainage routes. In close consultation with pilot municipalities, trade associations and affected citizens, this opens up an intelligent, dialogue-oriented path to the sustainable implementation of measures for flood- and flash flood prevention in urban areas.</p>
           <div class="photo-hint" style="color:var(--sage);margin-top:0.7rem;">View photos →</div>
         </div>
 
@@ -623,7 +626,7 @@
              onclick="openPh('Jugend Klima Forum', '2019', ['',''])">
           <div class="hack-year">2019</div>
           <div class="hack-title">Jugend Klima Forum</div>
-          <p class="hack-desc">Youth climate forum bringing together young people to develop ideas on climate action. Add detail about your role and what you took away from it.</p>
+          <p class="hack-desc">Youth climate forum bringing together young people to develop ideas on climate action and explore solutions individually, collectively and politically. Participants formulated messages for the World Climate Conference.</p>
           <div class="photo-hint" style="color:var(--sage);margin-top:0.7rem;">View photos →</div>
         </div>
 
@@ -634,12 +637,12 @@
           <p class="hack-desc">Research and development project at Trier University of Applied Sciences. Add detail about what the project involved and what it produced.</p>
         </div>
 
-        <!-- Empty slot -->
+        <!-- <!-- Empty slot -->
         <div class="hack-card reveal">
           <div class="hack-year">Add year</div>
           <div class="hack-title">Add another event</div>
           <p class="hack-desc">Edit this card in beyond.html on GitHub — add the year, title and description.</p>
-        </div>
+        </div> -->
 
       </div>
     </div>
