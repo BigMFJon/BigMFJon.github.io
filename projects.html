@@ -437,6 +437,7 @@ It taught me that hardware is unforgiving because I broke my laptop due to sendi
           data-status="research" data-status-label="Research"
           data-chips="Python,Google Earth Engine,Machine Learning,Spatial Analysis"
           data-short="ML models via Google Earth Engine to analyse satellite imagery -> working on an app that will suggest routes for running and biking based on weather conditions."
+          data-link="https://ee-bekzhonov.projects.earthengine.app/view/khorezm-water-supply"
           data-full="Built during a research fellowship at UC Davis. I used ML models (random forest nad SVM) via GEE to analyze satellite imagery and model how resources, water specifically, move and get allocated across large geographic areas.
 
 Working with Sentinel and Planet Labs satellite data was a different challenge from other machine learning projects, as the data is massive, the coordinate systems are tricky and the visualisation also requires skills.
@@ -480,6 +481,7 @@ This project gave me more interest for geospatial data and now I am working on g
           data-status="research" data-status-label="Paper in review"
           data-chips="Python,Atmospheric Data,Energy Modelling,Remote Sensing"
           data-short="Master's thesis contributing to a paper connected to the Swedish Energy Agency."
+          data-link="https://bigmfjon.github.io/dashboard/"
           data-full="My master's thesis developed in collaboration with research connected to the Swedish Energy Agency. I modelled atmospheric energy transfer and climate dynamics using remote sensing data.
 
 Specifically I looked at how occupant bahaviour affects energy loss and how we can quantify it for energy models that engineers use. The work combined statistical analysis data gathered using custom built CO2, RH, Temperature and Angle sensors over one-year period from 20 households throughout Sweden.
@@ -532,6 +534,7 @@ My results have been publushed as part of scientific article published by my pro
           data-status="live" data-status-label="Live"
           data-chips="HTML,CSS,Astro.js,JS"
           data-short="Complete website for my sister's massage salon: responsive, SEO-friendly, booking form included."
+          data-link="https://milacosmic.ru"
           data-full="My sister asked me to build a website for her massage salon. Site milacosmic.ru — landing page for a beauty studio
 
 Built with Astro.js (JavaScript framework that generates fast static HTML pages). Wrote all the content, layout and styles myself (HTML + CSS inside Astro components), occasionally used the Codex plugin for suggestions.
@@ -740,6 +743,7 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
         <div id="modal-meta">
           <span class="project-year" id="modal-year"></span>
           <span class="project-status" id="modal-status"></span>
+          <a id="modal-link" href="#" target="_blank" style="display:none;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);border-bottom:1px solid var(--terra);padding-bottom:1px;text-decoration:none;">Visit site →</a>
         </div>
       </div>
     </div>
@@ -801,6 +805,13 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
       document.getElementById('modal-year').textContent  = card.dataset.year   || '';
 
       // status
+      var linkEl = document.getElementById('modal-link');
+      if (card.dataset.link) {
+        linkEl.href = card.dataset.link;
+        linkEl.style.display = 'inline';
+      } else {
+        linkEl.style.display = 'none';
+      }
       var statusEl = document.getElementById('modal-status');
       var s = card.dataset.status || '';
       statusEl.textContent = card.dataset.statusLabel || '';
