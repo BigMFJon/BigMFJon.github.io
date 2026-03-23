@@ -225,6 +225,12 @@
     #modal-slider-inner {
       display: flex;
       transition: transform 0.35s ease;
+      width: 100%;
+    }
+
+    .modal-slide {
+      flex: 0 0 100%;
+      width: 100%;
     }
     .modal-slide {
       flex: 0 0 100%;
@@ -762,7 +768,8 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
 
     function mGoTo(n) {
       mCur = ((n % mTot) + mTot) % mTot;
-      mInner.style.transform = 'translateX(-' + (mCur * 100) + '%)';
+      var slideW = document.querySelector('.modal-slide').offsetWidth;
+      mInner.style.transform = 'translateX(-' + (mCur * slideW) + 'px)';
       mDots.querySelectorAll('.mdot').forEach(function(d, i) {
         d.classList.toggle('on', i === mCur);
       });
@@ -804,12 +811,12 @@ How Telegram's bot infrastructure works end to end. Got hands-on with NFTs in a 
       mInner.style.transform = 'translateX(0)';
 
       // set modal slider width to accommodate all slides
-      mInner.style.width = (mTot * 100) + '%';
+      mInner.style.width = '';
 
       cardSlides.forEach(function(cs, i) {
         var ms = document.createElement('div');
         ms.className = 'modal-slide';
-        ms.style.width = (100 / mTot) + '%';
+        ms.style.width = '';
 
         var img = cs.querySelector('img');
         if (img) {
