@@ -7,143 +7,180 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ═══ SPLASH SCREEN ═══ -->
+<!-- ═══ SPLASH SCREEN ═══ -->
 <div id="splash" style="position:fixed;inset:0;z-index:9999;background:#F7F4EF;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;">
 
-  <!-- animated background circles -->
+  <!-- animated background circles (always present) -->
   <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
     <div class="sp-circle" style="width:600px;height:600px;top:-100px;right:-150px;animation-delay:0s;"></div>
     <div class="sp-circle" style="width:400px;height:400px;bottom:-80px;left:-100px;animation-delay:0.4s;"></div>
     <div class="sp-circle" style="width:250px;height:250px;top:30%;left:20%;animation-delay:0.8s;"></div>
   </div>
 
-  <!-- counter -->
-  <div id="sp-counter" style="font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:#C17A5A;margin-bottom:2.5rem;opacity:0;transition:opacity 0.4s;">Loading</div>
+  <!-- STAGE 1: Welcome -->
+  <div id="sp-stage1" style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:2rem;opacity:0;transition:opacity 0.7s ease;">
+    <div style="font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:#C17A5A;margin-bottom:1.2rem;">Welcome</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:400;color:#2C2218;line-height:1.2;max-width:600px;">Welcome to my<br><em style="color:#C17A5A;">IDDP Application</em> page</div>
+    <div style="font-family:'Jost',sans-serif;font-size:0.85rem;color:#7D7168;margin-top:1.2rem;letter-spacing:0.04em;">Bekzhon Bekzhonov · Commerzbank IDDP 2026</div>
+  </div>
 
-  <!-- name -->
-  <div id="sp-name" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:400;color:#2C2218;letter-spacing:-0.01em;line-height:1;text-align:center;overflow:hidden;"></div>
+  <!-- STAGE 2: Kittens -->
+  <div id="sp-stage2" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem;opacity:0;transition:opacity 0.7s ease;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:400;color:#2C2218;margin-bottom:1.2rem;">To warm your heart before review —<br><em style="color:#C17A5A;">here are some kittens</em> 🐱</div>
+    <img src="images/kittens.jpg" alt="Kittens" style="max-height:42vh;max-width:90vw;object-fit:contain;border-radius:12px;box-shadow:0 8px 32px rgba(44,34,24,0.15);">
+  </div>
 
-  <!-- animated underline -->
-  <div style="width:0;height:1px;background:#C17A5A;margin-top:1.2rem;transition:width 0.8s ease;max-width:400px;" id="sp-line"></div>
+  <!-- STAGE 3: Keanu -->
+  <div id="sp-stage3" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem;opacity:0;transition:opacity 0.7s ease;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:400;color:#2C2218;margin-bottom:1.2rem;">In case you are allergic to cats —<br><em style="color:#C17A5A;">here is Keanu</em> 🕶️</div>
+    <img src="images/keanu.jpg" alt="Keanu Reeves" style="max-height:42vh;max-width:90vw;object-fit:contain;border-radius:12px;box-shadow:0 8px 32px rgba(44,34,24,0.15);">
+  </div>
 
-  <!-- tagline words -->
-  <div id="sp-tags" style="display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center;"></div>
+  <!-- STAGE 4: Name animation (your existing splash) -->
+  <div id="sp-stage4" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem;opacity:0;transition:opacity 0.7s ease;width:100%;">
+    <div id="sp-counter" style="font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:#C17A5A;margin-bottom:2.5rem;"></div>
+    <div id="sp-name" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:400;color:#2C2218;letter-spacing:-0.01em;line-height:1;text-align:center;overflow:hidden;"></div>
+    <div style="width:0;height:1px;background:#C17A5A;margin-top:1.2rem;transition:width 0.8s ease;max-width:400px;" id="sp-line"></div>
+    <div id="sp-tags" style="display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center;"></div>
+  </div>
 
   <!-- skip -->
   <div id="sp-skip" style="position:absolute;bottom:2rem;right:2rem;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#B0A89E;cursor:pointer;opacity:0;transition:opacity 0.4s;" onclick="dismissSplash()">Skip →</div>
 
   <!-- bottom bar -->
   <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#E5DDD4;">
-    <div id="sp-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#C17A5A,#7A9E7E);transition:width 4s linear;"></div>
+    <div id="sp-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#C17A5A,#7A9E7E);transition:width 9s linear;"></div>
   </div>
 
 </div>
 
 <style>
 .sp-circle {
-  position:absolute;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(193,122,90,0.08) 0%, transparent 70%);
-  opacity:0;
-  transform:scale(0.6);
-  transition:opacity 1.2s ease, transform 1.2s ease;
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(193,122,90,0.08) 0%,transparent 70%);
+  opacity:0;transform:scale(0.6);
+  transition:opacity 1.2s ease,transform 1.2s ease;
 }
-.sp-circle.show {
-  opacity:1;
-  transform:scale(1);
-}
+.sp-circle.show { opacity:1; transform:scale(1); }
 @keyframes spFloat {
-  0%,100% { transform:translateY(0) scale(1); }
-  50%      { transform:translateY(-18px) scale(1.03); }
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-18px) scale(1.03);}
 }
 </style>
 
 <script>
 (function(){
 
-  var name     = "Bekzhon Bekzhonov";
-  var tagwords = ["Technologist","Analyst","Builder"];
-  var nameEl   = document.getElementById('sp-name');
-  var splash   = document.getElementById('splash');
-  var line     = document.getElementById('sp-line');
-  var tagsEl   = document.getElementById('sp-tags');
-  var counter  = document.getElementById('sp-counter');
-  var skip     = document.getElementById('sp-skip');
-  var bar      = document.getElementById('sp-bar');
-  var done     = false;
+  var splash = document.getElementById('splash');
+  var done   = false;
 
-  window.dismissSplash = function() {
-    if (done) return;
+  window.dismissSplash = function(){
+    if(done) return;
     done = true;
     splash.style.transition = 'opacity 0.7s ease';
     splash.style.opacity = '0';
     setTimeout(function(){ splash.style.display='none'; }, 700);
   };
 
-  // show background circles
+  function showStage(id, callback, duration){
+    var el = document.getElementById(id);
+    el.style.display = 'flex';
+    setTimeout(function(){ el.style.opacity = '1'; }, 30);
+    setTimeout(function(){
+      el.style.opacity = '0';
+      setTimeout(function(){
+        el.style.display = 'none';
+        if(callback) callback();
+      }, 700);
+    }, duration);
+  }
+
+  // background circles
   setTimeout(function(){
     document.querySelectorAll('.sp-circle').forEach(function(c){ c.classList.add('show'); });
   }, 50);
 
-  // show counter
-  setTimeout(function(){ counter.style.opacity='1'; }, 300);
-
-  // animate name letters
-  var letters = name.split('');
-  letters.forEach(function(ch){
-    var s = document.createElement('span');
-    s.textContent = ch === ' ' ? '\u00A0' : ch;
-    s.style.cssText = 'opacity:0;transform:translateY(22px) rotateX(40deg);display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease;';
-    nameEl.appendChild(s);
-  });
-
-  var spans = nameEl.querySelectorAll('span');
-  spans.forEach(function(s, i){
-    setTimeout(function(){
-      s.style.opacity = '1';
-      s.style.transform = 'translateY(0) rotateX(0)';
-    }, 500 + i * 55);
-  });
-
-  // extend underline after name
+  // show skip after 2s
   setTimeout(function(){
-    line.style.width = '320px';
-  }, 500 + spans.length * 55 + 100);
+    document.getElementById('sp-skip').style.opacity = '1';
+  }, 2000);
 
-  // animate tagwords in one by one
-  tagwords.forEach(function(word, i){
-    var span = document.createElement('span');
-    span.textContent = word;
-    span.style.cssText = 'font-family:"Jost",sans-serif;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:#7A9E7E;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease;';
-    if (i < tagwords.length - 1) {
-      var sep = document.createElement('span');
-      sep.textContent = '·';
-      sep.style.cssText = 'color:#B0A89E;opacity:0;transition:opacity 0.4s ease;font-family:"Jost",sans-serif;';
-      tagsEl.appendChild(span);
-      tagsEl.appendChild(sep);
-      setTimeout(function(){ sep.style.opacity='1'; }, 500 + spans.length*55 + 300 + i*120 + 60);
-    } else {
-      tagsEl.appendChild(span);
-    }
-    setTimeout(function(){
-      span.style.opacity='1';
-      span.style.transform='translateY(0)';
-    }, 500 + spans.length*55 + 300 + i*120);
-  });
+  // start progress bar (covers full duration ~9s)
+  setTimeout(function(){ document.getElementById('sp-bar').style.width = '100%'; }, 100);
 
-  // float the name gently
+  // STAGE 1 — Welcome (2.2s)
   setTimeout(function(){
-    nameEl.style.animation = 'spFloat 4s ease-in-out infinite';
-  }, 500 + spans.length*55 + 600);
+    showStage('sp-stage1', function(){
 
-  // show skip button
-  setTimeout(function(){ skip.style.opacity='1'; }, 1800);
+      // STAGE 2 — Kittens (2.5s)
+      showStage('sp-stage2', function(){
 
-  // start progress bar
-  setTimeout(function(){ bar.style.width='100%'; }, 100);
+        // STAGE 3 — Keanu (2.5s)
+        showStage('sp-stage3', function(){
 
-  // auto dismiss after 4s
-  setTimeout(dismissSplash, 4200);
+          // STAGE 4 — Name animation
+          var stage4  = document.getElementById('sp-stage4');
+          var nameEl  = document.getElementById('sp-name');
+          var line    = document.getElementById('sp-line');
+          var tagsEl  = document.getElementById('sp-tags');
+          var counter = document.getElementById('sp-counter');
+
+          stage4.style.display = 'flex';
+          setTimeout(function(){ stage4.style.opacity = '1'; counter.style.opacity = '1'; }, 30);
+
+          var name     = "Bekzhon Bekzhonov";
+          var tagwords = ["Engineer","Analyst","Builder","Munich"];
+
+          name.split('').forEach(function(ch){
+            var s = document.createElement('span');
+            s.textContent = ch === ' ' ? '\u00A0' : ch;
+            s.style.cssText = 'opacity:0;transform:translateY(22px) rotateX(40deg);display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease;';
+            nameEl.appendChild(s);
+          });
+
+          var spans = nameEl.querySelectorAll('span');
+          spans.forEach(function(s,i){
+            setTimeout(function(){
+              s.style.opacity='1';
+              s.style.transform='translateY(0) rotateX(0)';
+            }, 300 + i*55);
+          });
+
+          setTimeout(function(){ line.style.width='320px'; }, 300 + spans.length*55 + 100);
+
+          tagwords.forEach(function(word,i){
+            var span = document.createElement('span');
+            span.textContent = word;
+            span.style.cssText = 'font-family:"Jost",sans-serif;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:#7A9E7E;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease;';
+            if(i < tagwords.length-1){
+              var sep = document.createElement('span');
+              sep.textContent = '·';
+              sep.style.cssText = 'color:#B0A89E;opacity:0;transition:opacity 0.4s ease;font-family:"Jost",sans-serif;';
+              tagsEl.appendChild(span);
+              tagsEl.appendChild(sep);
+              setTimeout(function(){ sep.style.opacity='1'; }, 300+spans.length*55+300+i*120+60);
+            } else {
+              tagsEl.appendChild(span);
+            }
+            setTimeout(function(){
+              span.style.opacity='1';
+              span.style.transform='translateY(0)';
+            }, 300+spans.length*55+300+i*120);
+          });
+
+          setTimeout(function(){
+            nameEl.style.animation='spFloat 4s ease-in-out infinite';
+          }, 300+spans.length*55+800);
+
+          // dismiss after name animation settles
+          setTimeout(dismissSplash, 300+spans.length*55+2800);
+
+        }, 2500); // keanu duration
+
+      }, 2500); // kittens duration
+
+    }, 2200); // welcome duration
+  }, 200);
 
 })();
 </script>
